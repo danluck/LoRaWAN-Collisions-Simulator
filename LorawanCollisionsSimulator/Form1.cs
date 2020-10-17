@@ -16,5 +16,12 @@ namespace LorawanCollisionsSimulator
 		{
 			InitializeComponent();
 		}
+
+		private void buttonDoEmulation_Click(object sender, EventArgs e)
+		{
+			Settings.EndNodesCount = (uint)numericUpDownEndNodesCount.Value;
+
+			Console.WriteLine("Settings.EndNodesCount={0}", Settings.EndNodesCount);
+		}
 	}
 }

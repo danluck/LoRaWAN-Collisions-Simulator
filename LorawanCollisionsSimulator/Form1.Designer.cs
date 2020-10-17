@@ -34,9 +34,9 @@
 			this.labelEndNodesCount = new System.Windows.Forms.Label();
 			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.buttonDoEmulation = new System.Windows.Forms.Button();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.numericUpDownEndNodesCount = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelEndNodesCount
@@ -66,33 +66,34 @@
 			// 
 			// buttonDoEmulation
 			// 
-			this.buttonDoEmulation.Location = new System.Drawing.Point(12, 25);
+			this.buttonDoEmulation.Location = new System.Drawing.Point(12, 77);
 			this.buttonDoEmulation.Name = "buttonDoEmulation";
 			this.buttonDoEmulation.Size = new System.Drawing.Size(75, 23);
 			this.buttonDoEmulation.TabIndex = 2;
 			this.buttonDoEmulation.Text = "DoEmulation";
 			this.buttonDoEmulation.UseVisualStyleBackColor = true;
+			this.buttonDoEmulation.Click += new System.EventHandler(this.buttonDoEmulation_Click);
 			// 
-			// numericUpDown1
+			// numericUpDownEndNodesCount
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(121, 7);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(67, 20);
-			this.numericUpDown1.TabIndex = 3;
+			this.numericUpDownEndNodesCount.Location = new System.Drawing.Point(121, 7);
+			this.numericUpDownEndNodesCount.Name = "numericUpDownEndNodesCount";
+			this.numericUpDownEndNodesCount.Size = new System.Drawing.Size(67, 20);
+			this.numericUpDownEndNodesCount.TabIndex = 3;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1083, 296);
-			this.Controls.Add(this.numericUpDown1);
+			this.Controls.Add(this.numericUpDownEndNodesCount);
 			this.Controls.Add(this.buttonDoEmulation);
 			this.Controls.Add(this.chart1);
 			this.Controls.Add(this.labelEndNodesCount);
 			this.Name = "Form1";
 			this.Text = "LorawanCollisionsSimulator";
 			((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -103,7 +104,7 @@
 		private System.Windows.Forms.Label labelEndNodesCount;
 		private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
 		private System.Windows.Forms.Button buttonDoEmulation;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.NumericUpDown numericUpDownEndNodesCount;
 	}
 }
 
