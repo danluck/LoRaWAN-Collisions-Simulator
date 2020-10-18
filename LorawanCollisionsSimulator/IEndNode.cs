@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LorawanCollisionsSimulator
 {
-	struct TransmissionLog
+	struct EndNodeTransmissionLog
 	{
 		public uint StartMs;
 		public uint EndMs;
@@ -29,6 +29,6 @@ namespace LorawanCollisionsSimulator
 
 	interface IEndNode
 	{
-		TransmissionLog[] GetTransmissionLog();
+		EndNodeTransmissionLog[] GetTransmissionLog();
 	}
 }

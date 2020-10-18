@@ -26,28 +26,20 @@ namespace LorawanCollisionsSimulator
 	/// </summary>
 	class Gateway
 	{
-		public Gateway()
-		{
-			_gateweayTransmissionLog = new List<GatewayTransmissionLog>();
-		}
-
         private const uint GATEWAY_DOWNLINK_PACKET_SIZE_BYTES = 13;
 
-        private uint GetRx1DownlinkTimeMs()
-        {
-            return GATEWAY_DOWNLINK_PACKET_SIZE_BYTES * 
-                Settings.OneByteTransmitTimeUs / 1000;
-        }
+        public Gateway()
+		{
+			_gatewayTransmissionLog = new List<GatewayTransmissionLog>();
+		}
 
-        private uint GetRx2DownlinkTimeMs()
+        public List<GatewayTransmissionLog> GetGateweayTransmissionLog()
         {
-            uint maxOneByteTransmitTimeUs = EndNode.GetByteTimeUsBySf(Settings.SF_MAX);
-            return GATEWAY_DOWNLINK_PACKET_SIZE_BYTES *
-                maxOneByteTransmitTimeUs / 1000;
+            return _gatewayTransmissionLog;
         }
 
         /// <summary>
-        /// Возвращает количество принятый на БС пакетов
+        /// Возвращает количество принятых БС пакетов
         /// </summary>
         /// <returns></returns>
         public uint GetPacketsThatNotInEndNodeCollisions(IEndNode[] endNodes)
@@ -77,10 +69,10 @@ namespace LorawanCollisionsSimulator
         /// </summary>
         /// <param name="startTime">Дата начала поиска</param>
         /// <returns></returns>
-        public static TransmissionLog GetNextReceivedPacket(IEndNode[] endNodes,
+        public static EndNodeTransmissionLog GetNextReceivedPacket(IEndNode[] endNodes,
             uint startTime)
         {
-            var minimumTransmissionLog = new TransmissionLog();
+            var minimumTransmissionLog = new EndNodeTransmissionLog();
             minimumTransmissionLog.StartMs = uint.MaxValue;
             for (uint i = 0; i < endNodes.Length; i++)
             {
@@ -107,8 +99,6 @@ namespace LorawanCollisionsSimulator
                 }
             }
 
-            //Console.WriteLine("minimumTransmissionLog.StartMs={0}",
-            //    minimumTransmissionLog.StartMs);
             return minimumTransmissionLog;
         }
 
@@ -122,10 +112,6 @@ namespace LorawanCollisionsSimulator
 		{
 			if (Settings.IsConfirmed)
 			{
-                // #TODO Рассчитать время передачи исходя из знания о том,
-                // что некоторые пакеты от конечных устройств будут пропущены,
-                // пока БС занята передачей
-
                 // Нужно найти самый ранний пакет от конечного устройства.
                 // Прием uplink-пакета базовой станцией инициирует 
                 // отправку двух подтверждений (downlink-пакетов):
@@ -154,7 +140,7 @@ namespace LorawanCollisionsSimulator
                     // Теперь поиск следует начинать с даты завершения отправки
                     // downlink-пакета в RX1
                     gatewayTransmitStartTimeMs = 
-                        _gateweayTransmissionLog.Last<GatewayTransmissionLog>().Rx1EndTimeMs;
+                        _gatewayTransmissionLog.Last<GatewayTransmissionLog>().Rx1EndTimeMs;
                 }
 			}
 			else
@@ -164,12 +150,7 @@ namespace LorawanCollisionsSimulator
 			}
 		}
 
-        public List<GatewayTransmissionLog> GetGateweayTransmissionLog()
-        {
-            return _gateweayTransmissionLog;
-        }
-
-        private void AddGatewayTransmission(TransmissionLog endNodeTransmission)
+        private void AddGatewayTransmission(EndNodeTransmissionLog endNodeTransmission)
         {
             var gatewayTransmissionLog = new GatewayTransmissionLog();
 
@@ -190,17 +171,18 @@ namespace LorawanCollisionsSimulator
                 gatewayTransmissionLog.Rx2StartTimeMs +
                 GetRx2DownlinkTimeMs();
 
-            _gateweayTransmissionLog.Add(gatewayTransmissionLog);
+            _gatewayTransmissionLog.Add(gatewayTransmissionLog);
         }
 
         /// <summary>
         /// Помечает пакеты, которые были пропущены GW из-за
         /// того, чтоб в это время выполнялась переда downlink-пакета
+        /// самими GW
         /// </summary>
         /// <param name="endNodes"></param>
         private void MarkPacketsThatNotBeListenByGateway(IEndNode[] endNodes)
         {
-            foreach (var gateweayTransmissionLog in _gateweayTransmissionLog)
+            foreach (var gateweayTransmissionLog in _gatewayTransmissionLog)
             {
                 for (uint i = 0; i < endNodes.Length; i++)
                 {
@@ -229,6 +211,19 @@ namespace LorawanCollisionsSimulator
             }
         }
 
-		private List<GatewayTransmissionLog> _gateweayTransmissionLog;
+        private uint GetRx1DownlinkTimeMs()
+        {
+            return GATEWAY_DOWNLINK_PACKET_SIZE_BYTES *
+                Settings.OneByteTransmitTimeUs / 1000;
+        }
+
+        private uint GetRx2DownlinkTimeMs()
+        {
+            uint maxOneByteTransmitTimeUs = EndNode.GetByteTimeUsBySf(Settings.SF_MAX);
+            return GATEWAY_DOWNLINK_PACKET_SIZE_BYTES *
+                maxOneByteTransmitTimeUs / 1000;
+        }
+
+        private List<GatewayTransmissionLog> _gatewayTransmissionLog;
 	}
 }

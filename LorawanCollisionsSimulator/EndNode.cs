@@ -13,7 +13,7 @@ namespace LorawanCollisionsSimulator
 			CalculateTransmitTime();
 		}
 
-		public TransmissionLog[] GetTransmissionLog()
+		public EndNodeTransmissionLog[] GetTransmissionLog()
 		{
 			return _transmissionLogs;
 		}
@@ -52,13 +52,10 @@ namespace LorawanCollisionsSimulator
 
 		public void CalculateTransmitTime()
 		{
-			_transmissionLogs = new TransmissionLog[Settings.PacketsPerHour];
+			_transmissionLogs = new EndNodeTransmissionLog[Settings.PacketsPerHour];
 
 			const uint MS_IN_HOUR = 60 * 60 * 1000;
 			uint transmitPeriodMs = MS_IN_HOUR / Settings.PacketsPerHour;
-			//Console.WriteLine("transmitPeriodMs={0}", transmitPeriodMs);
-			//Console.WriteLine("GetOnePacketTransmitTimeMs()={0}", 
-			//	GetOnePacketTransmitTimeMs());
 
 			uint slotTimeMs = 0;
 			for (uint i = 0; i < Settings.PacketsPerHour; i++)
@@ -81,6 +78,6 @@ namespace LorawanCollisionsSimulator
 			return (uint)random.Next((int)Settings.ChannelsCount);
 		}
 
-		private TransmissionLog[] _transmissionLogs;
+		private EndNodeTransmissionLog[] _transmissionLogs;
 	}
 }
