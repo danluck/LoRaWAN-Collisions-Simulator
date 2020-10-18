@@ -11,5 +11,9 @@ namespace LorawanCollisionsSimulator
 		public static uint Rx1PeriodS;
 
 		public static uint EndNodesCount;
+
+		public static uint SimulateLengthMs = 60 * 60 * 1000;
+
+		public static uint ChannelsCount = 7;
 	}
 }
