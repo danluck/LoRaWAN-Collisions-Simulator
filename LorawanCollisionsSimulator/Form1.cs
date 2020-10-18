@@ -17,10 +17,10 @@ namespace LorawanCollisionsSimulator
 		{
 			InitializeComponent();
 
-			Console.WindowHeight = 60;
-			Console.WindowWidth = 200;
-
-			numericUpDownSf.Minimum = Settings.SF_MIN;
+            Console.WindowHeight = Console.LargestWindowHeight - 10;
+			Console.WindowWidth = Console.LargestWindowWidth - 10;
+           
+            numericUpDownSf.Minimum = Settings.SF_MIN;
 			numericUpDownSf.Maximum = Settings.SF_MAX;
 			numericUpDownSf.Value = Settings.SF_DEFAULT;
 
@@ -196,5 +196,13 @@ namespace LorawanCollisionsSimulator
 			ReadEndNodesCount();
 			ShowCalculatedParameters();
 		}
-	}
+
+        private void checkBoxIsConfirmed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxIsConfirmed.Checked)
+            {
+                Console.WriteLine("Confirmed mode not supported!");
+            }
+        }
+    }
 }
