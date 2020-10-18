@@ -38,9 +38,12 @@
 			this.labelPacketSizeText = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.labelOnePacketLengthMs = new System.Windows.Forms.Label();
+			this.numericUpDownSf = new System.Windows.Forms.NumericUpDown();
+			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownSf)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelEndNodesCount
@@ -54,7 +57,7 @@
 			// 
 			// buttonDoEmulation
 			// 
-			this.buttonDoEmulation.Location = new System.Drawing.Point(15, 148);
+			this.buttonDoEmulation.Location = new System.Drawing.Point(31, 216);
 			this.buttonDoEmulation.Name = "buttonDoEmulation";
 			this.buttonDoEmulation.Size = new System.Drawing.Size(75, 23);
 			this.buttonDoEmulation.TabIndex = 2;
@@ -87,7 +90,7 @@
 			// checkBoxIsConfirmed
 			// 
 			this.checkBoxIsConfirmed.AutoSize = true;
-			this.checkBoxIsConfirmed.Location = new System.Drawing.Point(15, 125);
+			this.checkBoxIsConfirmed.Location = new System.Drawing.Point(31, 193);
 			this.checkBoxIsConfirmed.Name = "checkBoxIsConfirmed";
 			this.checkBoxIsConfirmed.Size = new System.Drawing.Size(121, 17);
 			this.checkBoxIsConfirmed.TabIndex = 4;
@@ -161,7 +164,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(208, 68);
+			this.label1.Location = new System.Drawing.Point(39, 140);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(101, 13);
 			this.label1.TabIndex = 9;
@@ -170,17 +173,51 @@
 			// labelOnePacketLengthMs
 			// 
 			this.labelOnePacketLengthMs.AutoSize = true;
-			this.labelOnePacketLengthMs.Location = new System.Drawing.Point(309, 68);
+			this.labelOnePacketLengthMs.Location = new System.Drawing.Point(140, 140);
 			this.labelOnePacketLengthMs.Name = "labelOnePacketLengthMs";
 			this.labelOnePacketLengthMs.Size = new System.Drawing.Size(10, 13);
 			this.labelOnePacketLengthMs.TabIndex = 10;
 			this.labelOnePacketLengthMs.Text = "-";
+			// 
+			// numericUpDownSf
+			// 
+			this.numericUpDownSf.Location = new System.Drawing.Point(121, 95);
+			this.numericUpDownSf.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+			this.numericUpDownSf.Minimum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+			this.numericUpDownSf.Name = "numericUpDownSf";
+			this.numericUpDownSf.Size = new System.Drawing.Size(67, 20);
+			this.numericUpDownSf.TabIndex = 12;
+			this.numericUpDownSf.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+			this.numericUpDownSf.ValueChanged += new System.EventHandler(this.numericUpDownSf_ValueChanged);
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(83, 97);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(23, 13);
+			this.label2.TabIndex = 11;
+			this.label2.Text = "SF:";
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(703, 415);
+			this.Controls.Add(this.numericUpDownSf);
+			this.Controls.Add(this.label2);
 			this.Controls.Add(this.labelOnePacketLengthMs);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.numericUpDownPacketSize);
@@ -196,6 +233,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownSf)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -213,6 +251,8 @@
 		private System.Windows.Forms.Label labelPacketSizeText;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label labelOnePacketLengthMs;
+		private System.Windows.Forms.NumericUpDown numericUpDownSf;
+		private System.Windows.Forms.Label label2;
 	}
 }
 

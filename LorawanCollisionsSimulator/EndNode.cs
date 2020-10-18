@@ -18,6 +18,32 @@ namespace LorawanCollisionsSimulator
 			return _transmissionLogs;
 		}
 
+		public static uint GetByteTimeUsBySf(uint sf)
+		{
+			if (sf < Settings.SF_MIN)
+				sf = Settings.SF_MIN;
+			if (sf > Settings.SF_MAX)
+				sf = Settings.SF_MAX;
+
+			switch(sf)
+			{
+				case 7:
+					return 2313;
+				case 8:
+					return 4215;
+				case 9:
+					return 7647;
+				case 10:
+					return 13686;
+				case 11:
+					return 30588;
+				case 12:
+					return 57764;
+				default:
+					return 57764;
+			}
+		}
+
 		public static uint GetOnePacketTransmitTimeMs()
 		{
 			return (Settings.PacketSizeBytes * Settings.OneByteTransmitTimeUs) /

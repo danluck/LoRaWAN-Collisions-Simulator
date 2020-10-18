@@ -20,6 +20,10 @@ namespace LorawanCollisionsSimulator
 			Console.WindowHeight = 60;
 			Console.WindowWidth = 200;
 
+			numericUpDownSf.Minimum = Settings.SF_MIN;
+			numericUpDownSf.Maximum = Settings.SF_MAX;
+			numericUpDownSf.Value = Settings.SF_DEFAULT;
+
 			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
 			numericUpDownPacketsPerHour.Value = Settings.PacketsPerHour;
 			numericUpDownPacketSize.Value = Settings.PacketSizeBytes;
@@ -43,6 +47,13 @@ namespace LorawanCollisionsSimulator
 			Settings.PacketSizeBytes = (uint)numericUpDownPacketSize.Value;
 		}
 
+		private void ReadSf()
+		{
+			Settings.OneByteTransmitTimeUs = 
+				EndNode.GetByteTimeUsBySf(
+					(uint)numericUpDownSf.Value);
+		}
+
 		private void ReadParametersFromForm()
 		{
 			// Чтение параметров с формы в настройки
@@ -50,12 +61,14 @@ namespace LorawanCollisionsSimulator
 			Settings.IsConfirmed = checkBoxIsConfirmed.Checked;
 			ReadPacketSize();
 			ReadPacketsPerHour();
+			ReadSf();
 
 			Console.WriteLine("Settings.EndNodesCount={0}", Settings.EndNodesCount);
 			Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
 			Console.WriteLine("Settings.IsConfirmed={0}", Settings.IsConfirmed);
 			Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
 			Console.WriteLine("Settings.PacketSizeBytes={0}", Settings.PacketSizeBytes);
+			Console.WriteLine("Settings.OneByteTransmitTimeUs={0}", Settings.OneByteTransmitTimeUs);
 
 			ShowOnePacketLengthMs();
 		}
@@ -91,13 +104,13 @@ namespace LorawanCollisionsSimulator
 				var transmitTimes = _endNodes[i].GetTransmissionLog();
 				for (uint j = 0; j < transmitTimes.Length; j++)
 				{
-					Console.WriteLine("[{0}][ch={1}][{2}..{3}][gw={4}][c={5}]",
+					Console.WriteLine("[{0}][ch={1}]\t[{2}..{3}]\t[gw={4}][c={5}]",
 						j,
 						transmitTimes[j].ChannelNumber,
 						transmitTimes[j].StartMs,
 						transmitTimes[j].EndMs,
-						transmitTimes[j].IsPacketCanBeListenByGateway,
-						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes);
+						transmitTimes[j].IsPacketCanBeListenByGateway ? 1 : 0,
+						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes ? 1 : 0);
 					if (transmitTimes[j].IsPacketCollisionsWithOtherEndNodes)
 					{
 						totalCollisionsCount++;
@@ -131,6 +144,12 @@ namespace LorawanCollisionsSimulator
 		private void numericUpDownPacketSize_ValueChanged(object sender, EventArgs e)
 		{
 			ReadPacketSize();
+			ShowOnePacketLengthMs();
+		}
+
+		private void numericUpDownSf_ValueChanged(object sender, EventArgs e)
+		{
+			ReadSf();
 			ShowOnePacketLengthMs();
 		}
 	}
