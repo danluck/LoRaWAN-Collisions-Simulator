@@ -106,6 +106,7 @@ namespace LorawanCollisionsSimulator
             _gateway.CalculateGatewayTx(_endNodes);
 			ShowGatewayTxTime();
             ShowPacketsThatWasSkippedByGateway();
+            ShowSuccessfullyReceivedPackets();
 
             // Количество пакетов, которое могло бы быть принято, если бы БС могла
             // слушать эфир во время передачи
@@ -175,8 +176,8 @@ namespace LorawanCollisionsSimulator
 					}
 				}
 			}
-			uint totalPacketsCount = Settings.PacketsPerHour * Settings.EndNodesCount;
-			float collsionsPercents = (float)totalCollisionsCount * 100.0f / 
+            uint totalPacketsCount = Settings.GetTotalPacketsCount();
+            float collsionsPercents = (float)totalCollisionsCount * 100.0f / 
 				(float)totalPacketsCount;
 			Console.WriteLine("totalCollisionsCount={0}, totalPacketsCount={1}",
 				totalCollisionsCount,
@@ -198,6 +199,33 @@ namespace LorawanCollisionsSimulator
 			Console.WriteLine("gatewayTransmissionLog.Count={0}",
 				gatewayTransmissionLog.Count);
 		}
+
+        private void ShowSuccessfullyReceivedPackets()
+        {
+            uint successPackets = 0;
+
+            for (uint i = 0; i < _endNodes.Length; i++)
+            {
+                var endNode = _endNodes[i];
+                var endNodeTransmissionLog = endNode.GetTransmissionLog();
+                for (uint j = 0; j < endNodeTransmissionLog.Length; j++)
+                {
+                    if (!endNodeTransmissionLog[j].IsPacketCollisionsWithOtherEndNodes &&
+                        endNodeTransmissionLog[j].IsPacketCanBeListenByGateway)
+                    {
+                        successPackets++;
+                    }
+                }
+            }
+
+            Console.WriteLine("successPackets={0}", successPackets);
+            labelSuccessfullyReceivedPackets.Text = successPackets.ToString();
+
+            float totalPackets = Settings.GetTotalPacketsCount();
+            float successPercent = (float)successPackets * 100.0f / totalPackets;
+            labelSuccessPacketsPercents.Text = successPercent.ToString();
+
+        }
 
 		private IEndNode[] _endNodes;
 		private Gateway _gateway;
@@ -228,10 +256,6 @@ namespace LorawanCollisionsSimulator
 
         private void checkBoxIsConfirmed_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxIsConfirmed.Checked)
-            {
-                Console.WriteLine("Confirmed mode not supported!");
-            }
         }
     }
 }

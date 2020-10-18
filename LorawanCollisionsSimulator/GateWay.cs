@@ -107,8 +107,8 @@ namespace LorawanCollisionsSimulator
                 }
             }
 
-            Console.WriteLine("minimumTransmissionLog.StartMs={0}",
-                minimumTransmissionLog.StartMs);
+            //Console.WriteLine("minimumTransmissionLog.StartMs={0}",
+            //    minimumTransmissionLog.StartMs);
             return minimumTransmissionLog;
         }
 

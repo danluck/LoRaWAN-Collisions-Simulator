@@ -46,6 +46,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelGatewaySkippedPackets = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelSuccessfullyReceivedPackets = new System.Windows.Forms.Label();
+            this.labelSuccessPacketsPercents = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
@@ -291,11 +295,55 @@
             this.labelGatewaySkippedPackets.TabIndex = 18;
             this.labelGatewaySkippedPackets.Text = "-";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 380);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(201, 17);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Successfully received packets:";
+            // 
+            // labelSuccessfullyReceivedPackets
+            // 
+            this.labelSuccessfullyReceivedPackets.AutoSize = true;
+            this.labelSuccessfullyReceivedPackets.Location = new System.Drawing.Point(231, 380);
+            this.labelSuccessfullyReceivedPackets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSuccessfullyReceivedPackets.Name = "labelSuccessfullyReceivedPackets";
+            this.labelSuccessfullyReceivedPackets.Size = new System.Drawing.Size(13, 17);
+            this.labelSuccessfullyReceivedPackets.TabIndex = 20;
+            this.labelSuccessfullyReceivedPackets.Text = "-";
+            // 
+            // labelSuccessPacketsPercents
+            // 
+            this.labelSuccessPacketsPercents.AutoSize = true;
+            this.labelSuccessPacketsPercents.Location = new System.Drawing.Point(231, 413);
+            this.labelSuccessPacketsPercents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSuccessPacketsPercents.Name = "labelSuccessPacketsPercents";
+            this.labelSuccessPacketsPercents.Size = new System.Drawing.Size(13, 17);
+            this.labelSuccessPacketsPercents.TabIndex = 22;
+            this.labelSuccessPacketsPercents.Text = "-";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 413);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(221, 17);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Successfully received packets, %:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 533);
+            this.Controls.Add(this.labelSuccessPacketsPercents);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelSuccessfullyReceivedPackets);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.labelGatewaySkippedPackets);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelEndNodeInitiatedCollisions);
@@ -346,6 +394,10 @@
 		private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelGatewaySkippedPackets;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelSuccessfullyReceivedPackets;
+        private System.Windows.Forms.Label labelSuccessPacketsPercents;
+        private System.Windows.Forms.Label label8;
     }
 }
 
