@@ -103,12 +103,36 @@ namespace LorawanCollisionsSimulator
 			ShowEndNodesTransmitTimes();
 
 			CreateGateway();
+            _gateway.CalculateGatewayTx(_endNodes);
 			ShowGatewayTxTime();
+            ShowPacketsThatWasSkippedByGateway();
 
-            uint packetsReceived = _gateway.GetPacketsThatNotInEndNodeCollisions(_endNodes);
-            Console.WriteLine("packetsReceived={0}", packetsReceived);
+            // Количество пакетов, которое могло бы быть принято, если бы БС могла
+            // слушать эфир во время передачи
+            uint theoreticalPacketsReceived = 
+                _gateway.GetPacketsThatNotInEndNodeCollisions(_endNodes);
+            Console.WriteLine("theoretical packetsReceived={0}", 
+                theoreticalPacketsReceived);
+        }
 
-            var transmissionLog = Gateway.GetNextReceivedPacket(_endNodes, 0);
+        private void ShowPacketsThatWasSkippedByGateway()
+        {
+            uint skippedPacketsCount = 0;
+            for (uint i = 0; i < _endNodes.Length; i++)
+            {
+                var endNode = _endNodes[i];
+                var endNodeTransmissionLog = endNode.GetTransmissionLog();
+                for (uint j = 0; j < endNodeTransmissionLog.Length; j++)
+                {
+                    if (!endNodeTransmissionLog[j].IsPacketCollisionsWithOtherEndNodes &&
+                        !endNodeTransmissionLog[j].IsPacketCanBeListenByGateway)
+                    {
+                        skippedPacketsCount++;
+                    }
+                }
+            }
+
+            labelGatewaySkippedPackets.Text = skippedPacketsCount.ToString();
         }
 
 		private void CreateEndNodes()
@@ -170,7 +194,7 @@ namespace LorawanCollisionsSimulator
 		}
 		private void ShowGatewayTxTime()
 		{
-			var gatewayTransmissionLog = _gateway.GetGatewayTx(_endNodes);
+			var gatewayTransmissionLog = _gateway.GetGateweayTransmissionLog();
 			Console.WriteLine("gatewayTransmissionLog.Count={0}",
 				gatewayTransmissionLog.Count);
 		}

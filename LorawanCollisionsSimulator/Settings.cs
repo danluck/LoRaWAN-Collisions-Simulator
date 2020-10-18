@@ -26,7 +26,7 @@ namespace LorawanCollisionsSimulator
 		/// <summary>
 		/// Длительность передачи одного байта, с
 		/// </summary>
-		public static uint OneByteTransmitTimeUs = 58000;
+		public static uint OneByteTransmitTimeUs;
 
 		public const uint SF_MIN = 7;
 		public const uint SF_MAX = 12;
