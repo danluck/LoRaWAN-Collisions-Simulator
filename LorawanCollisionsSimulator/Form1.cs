@@ -53,7 +53,9 @@ namespace LorawanCollisionsSimulator
 				var transmitTimes = _endNodes[i].GetTransmitTimes();
 				for (uint j = 0; j < transmitTimes.Length; j++)
 				{
-					Console.Write("[{0}..{1}] ", transmitTimes[j].StartMs,
+					Console.Write("[{0}][{1}..{2}] ",
+						transmitTimes[j].ChannelNumber,
+						transmitTimes[j].StartMs,
 						transmitTimes[j].EndMs);
 				}
 				Console.WriteLine("");

@@ -13,9 +13,9 @@ namespace LorawanCollisionsSimulator
 			CalculateTransmitTime();
 		}
 
-		public TimeTx[] GetTransmitTimes()
+		public TransmissionLog[] GetTransmitTimes()
 		{
-			return _transmitTimes;
+			return _transmissionLogs;
 		}
 
 		public uint GetOnePacketTransmitTimeMs()
@@ -26,7 +26,7 @@ namespace LorawanCollisionsSimulator
 
 		public void CalculateTransmitTime()
 		{
-			_transmitTimes = new TimeTx[Settings.PacketsPerHour];
+			_transmissionLogs = new TransmissionLog[Settings.PacketsPerHour];
 
 			const uint MS_IN_HOUR = 60 * 60 * 1000;
 			uint transmitPeriodMs = MS_IN_HOUR / Settings.PacketsPerHour;
@@ -37,13 +37,21 @@ namespace LorawanCollisionsSimulator
 			uint slotTimeMs = 0;
 			for (uint i = 0; i < Settings.PacketsPerHour; i++)
 			{
-				_transmitTimes[i].StartMs = slotTimeMs;
-				_transmitTimes[i].EndMs = slotTimeMs + GetOnePacketTransmitTimeMs();
+				_transmissionLogs[i].StartMs = slotTimeMs;
+				_transmissionLogs[i].EndMs = slotTimeMs + GetOnePacketTransmitTimeMs();
+				_transmissionLogs[i].ChannelNumber = GetRandomChannelNumber();
+				_transmissionLogs[i].IsPacketCanBeListenByGateway = true;
 
 				slotTimeMs += transmitPeriodMs;
 			}
 		}
 
-		private TimeTx[] _transmitTimes;
+		private uint GetRandomChannelNumber()
+		{
+			var random = RandomAccessPoint.GetRandomObject();
+			return (uint)random.Next((int)Settings.ChannelsCount);
+		}
+
+		private TransmissionLog[] _transmissionLogs;
 	}
 }

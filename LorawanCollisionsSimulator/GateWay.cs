@@ -12,19 +12,21 @@ namespace LorawanCollisionsSimulator
 	/// </summary>
 	class Gateway
 	{
-		public TimeTx[] GetGatewayTx(IEndNode[] endNodes)
+		public TransmissionLog[] GetGatewayTx(IEndNode[] endNodes)
 		{
 			if (Settings.IsConfirmed)
 			{
-				// #TODO Рассчитать время передачи
-				var timeTx = new TimeTx[1];
+				// #TODO Рассчитать время передачи исходя из знания о том,
+				// что некоторые пакеты от конечных устройств будут пропущены,
+				// пока БС занята передачей
+				var timeTx = new TransmissionLog[1];
 				timeTx[0].StartMs = 0;
 				timeTx[0].EndMs = 0;
 				return timeTx;
 			}
 			else
 			{
-				var timeTx = new TimeTx[1];
+				var timeTx = new TransmissionLog[1];
 				timeTx[0].StartMs = 0;
 				timeTx[0].EndMs = 0;
 				return timeTx;
