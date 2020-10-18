@@ -10,7 +10,7 @@ namespace LorawanCollisionsSimulator
 	/// Имитирует работу БС
 	/// В случае отправки подтверждений задействуется 2 приемных окна
 	/// </summary>
-	class GateWay
+	class Gateway
 	{
 		public TimeTx[] GetGatewayTx(IEndNode[] endNodes)
 		{

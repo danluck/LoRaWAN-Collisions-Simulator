@@ -62,10 +62,10 @@ namespace LorawanCollisionsSimulator
 
 		private void CreateGateway()
 		{
-			_gateway = new GateWay();
+			_gateway = new Gateway();
 		}
 
 		private IEndNode[] _endNodes;
-		private GateWay _gateway;
+		private Gateway _gateway;
 	}
 }
