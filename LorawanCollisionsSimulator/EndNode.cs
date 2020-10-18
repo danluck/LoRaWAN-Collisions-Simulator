@@ -52,13 +52,13 @@ namespace LorawanCollisionsSimulator
 
 		public void CalculateTransmitTime()
 		{
-			_transmissionLogs = new EndNodeTransmissionLog[Settings.PacketsPerHour];
+			_transmissionLogs = new EndNodeTransmissionLog[
+                Settings.GetPacketsCountFromOneNode()];
 
-			const uint MS_IN_HOUR = 60 * 60 * 1000;
-			uint transmitPeriodMs = MS_IN_HOUR / Settings.PacketsPerHour;
+			uint transmitPeriodMs = Settings.MS_IN_HOUR / Settings.PacketsPerHour;
 
 			uint slotTimeMs = 0;
-			for (uint i = 0; i < Settings.PacketsPerHour; i++)
+			for (uint i = 0; i < Settings.GetPacketsCountFromOneNode(); i++)
 			{
 				var random = RandomAccessPoint.GetRandomObject();
 				uint randomWait = (uint)random.Next((int)transmitPeriodMs);

@@ -55,18 +55,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDownRx1 = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDownSimulateHours = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSf)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRx1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulateHours)).BeginInit();
             this.SuspendLayout();
             // 
             // labelEndNodesCount
             // 
             this.labelEndNodesCount.AutoSize = true;
-            this.labelEndNodesCount.Location = new System.Drawing.Point(17, 11);
+            this.labelEndNodesCount.Location = new System.Drawing.Point(78, 9);
             this.labelEndNodesCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndNodesCount.Name = "labelEndNodesCount";
             this.labelEndNodesCount.Size = new System.Drawing.Size(123, 17);
@@ -75,18 +78,18 @@
             // 
             // buttonDoEmulation
             // 
-            this.buttonDoEmulation.Location = new System.Drawing.Point(13, 221);
+            this.buttonDoEmulation.Location = new System.Drawing.Point(13, 245);
             this.buttonDoEmulation.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDoEmulation.Name = "buttonDoEmulation";
-            this.buttonDoEmulation.Size = new System.Drawing.Size(216, 59);
+            this.buttonDoEmulation.Size = new System.Drawing.Size(404, 59);
             this.buttonDoEmulation.TabIndex = 2;
-            this.buttonDoEmulation.Text = "DoEmulation";
+            this.buttonDoEmulation.Text = "Do Emulation";
             this.buttonDoEmulation.UseVisualStyleBackColor = true;
             this.buttonDoEmulation.Click += new System.EventHandler(this.buttonDoEmulation_Click);
             // 
             // numericUpDownEndNodesCount
             // 
-            this.numericUpDownEndNodesCount.Location = new System.Drawing.Point(146, 9);
+            this.numericUpDownEndNodesCount.Location = new System.Drawing.Point(207, 7);
             this.numericUpDownEndNodesCount.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownEndNodesCount.Maximum = new decimal(new int[] {
             1000,
@@ -111,7 +114,7 @@
             // checkBoxIsConfirmed
             // 
             this.checkBoxIsConfirmed.AutoSize = true;
-            this.checkBoxIsConfirmed.Location = new System.Drawing.Point(85, 148);
+            this.checkBoxIsConfirmed.Location = new System.Drawing.Point(207, 172);
             this.checkBoxIsConfirmed.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxIsConfirmed.Name = "checkBoxIsConfirmed";
             this.checkBoxIsConfirmed.Size = new System.Drawing.Size(94, 21);
@@ -122,7 +125,7 @@
             // 
             // numericUpDownPacketsPerHour
             // 
-            this.numericUpDownPacketsPerHour.Location = new System.Drawing.Point(146, 36);
+            this.numericUpDownPacketsPerHour.Location = new System.Drawing.Point(207, 34);
             this.numericUpDownPacketsPerHour.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownPacketsPerHour.Maximum = new decimal(new int[] {
             1000,
@@ -147,16 +150,16 @@
             // labelPacketsPerHourText
             // 
             this.labelPacketsPerHourText.AutoSize = true;
-            this.labelPacketsPerHourText.Location = new System.Drawing.Point(18, 38);
+            this.labelPacketsPerHourText.Location = new System.Drawing.Point(2, 36);
             this.labelPacketsPerHourText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPacketsPerHourText.Name = "labelPacketsPerHourText";
-            this.labelPacketsPerHourText.Size = new System.Drawing.Size(123, 17);
+            this.labelPacketsPerHourText.Size = new System.Drawing.Size(197, 17);
             this.labelPacketsPerHourText.TabIndex = 5;
-            this.labelPacketsPerHourText.Text = "Packets Per Hour:";
+            this.labelPacketsPerHourText.Text = "Packets Per Hour From Node:";
             // 
             // numericUpDownPacketSize
             // 
-            this.numericUpDownPacketSize.Location = new System.Drawing.Point(146, 63);
+            this.numericUpDownPacketSize.Location = new System.Drawing.Point(207, 61);
             this.numericUpDownPacketSize.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownPacketSize.Maximum = new decimal(new int[] {
             222,
@@ -181,7 +184,7 @@
             // labelPacketSizeText
             // 
             this.labelPacketSizeText.AutoSize = true;
-            this.labelPacketSizeText.Location = new System.Drawing.Point(19, 65);
+            this.labelPacketSizeText.Location = new System.Drawing.Point(70, 63);
             this.labelPacketSizeText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPacketSizeText.Name = "labelPacketSizeText";
             this.labelPacketSizeText.Size = new System.Drawing.Size(129, 17);
@@ -191,17 +194,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 173);
+            this.label1.Location = new System.Drawing.Point(44, 197);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 17);
+            this.label1.Size = new System.Drawing.Size(201, 17);
             this.label1.TabIndex = 9;
-            this.label1.Text = "OnePacketTimeMs:";
+            this.label1.Text = "One Packet Duration Time Ms:";
             // 
             // labelOnePacketLengthMs
             // 
             this.labelOnePacketLengthMs.AutoSize = true;
-            this.labelOnePacketLengthMs.Location = new System.Drawing.Point(187, 173);
+            this.labelOnePacketLengthMs.Location = new System.Drawing.Point(251, 197);
             this.labelOnePacketLengthMs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOnePacketLengthMs.Name = "labelOnePacketLengthMs";
             this.labelOnePacketLengthMs.Size = new System.Drawing.Size(13, 17);
@@ -210,7 +213,7 @@
             // 
             // numericUpDownSf
             // 
-            this.numericUpDownSf.Location = new System.Drawing.Point(146, 91);
+            this.numericUpDownSf.Location = new System.Drawing.Point(207, 89);
             this.numericUpDownSf.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownSf.Maximum = new decimal(new int[] {
             12,
@@ -235,7 +238,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(114, 93);
+            this.label2.Location = new System.Drawing.Point(170, 91);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 17);
@@ -245,7 +248,7 @@
             // labelAirTimePercents
             // 
             this.labelAirTimePercents.AutoSize = true;
-            this.labelAirTimePercents.Location = new System.Drawing.Point(187, 200);
+            this.labelAirTimePercents.Location = new System.Drawing.Point(251, 224);
             this.labelAirTimePercents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAirTimePercents.Name = "labelAirTimePercents";
             this.labelAirTimePercents.Size = new System.Drawing.Size(13, 17);
@@ -255,7 +258,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 200);
+            this.label4.Location = new System.Drawing.Point(108, 224);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 17);
@@ -265,7 +268,7 @@
             // labelEndNodeInitiatedCollisions
             // 
             this.labelEndNodeInitiatedCollisions.AutoSize = true;
-            this.labelEndNodeInitiatedCollisions.Location = new System.Drawing.Point(342, 34);
+            this.labelEndNodeInitiatedCollisions.Location = new System.Drawing.Point(325, 23);
             this.labelEndNodeInitiatedCollisions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndNodeInitiatedCollisions.Name = "labelEndNodeInitiatedCollisions";
             this.labelEndNodeInitiatedCollisions.Size = new System.Drawing.Size(13, 17);
@@ -275,7 +278,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 34);
+            this.label5.Location = new System.Drawing.Point(15, 23);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(217, 17);
@@ -285,7 +288,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 65);
+            this.label3.Location = new System.Drawing.Point(15, 54);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(312, 17);
@@ -295,7 +298,7 @@
             // labelGatewaySkippedPackets
             // 
             this.labelGatewaySkippedPackets.AutoSize = true;
-            this.labelGatewaySkippedPackets.Location = new System.Drawing.Point(342, 65);
+            this.labelGatewaySkippedPackets.Location = new System.Drawing.Point(325, 54);
             this.labelGatewaySkippedPackets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGatewaySkippedPackets.Name = "labelGatewaySkippedPackets";
             this.labelGatewaySkippedPackets.Size = new System.Drawing.Size(13, 17);
@@ -305,7 +308,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 98);
+            this.label6.Location = new System.Drawing.Point(15, 87);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(201, 17);
@@ -315,7 +318,7 @@
             // labelSuccessfullyReceivedPackets
             // 
             this.labelSuccessfullyReceivedPackets.AutoSize = true;
-            this.labelSuccessfullyReceivedPackets.Location = new System.Drawing.Point(342, 98);
+            this.labelSuccessfullyReceivedPackets.Location = new System.Drawing.Point(325, 87);
             this.labelSuccessfullyReceivedPackets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSuccessfullyReceivedPackets.Name = "labelSuccessfullyReceivedPackets";
             this.labelSuccessfullyReceivedPackets.Size = new System.Drawing.Size(13, 17);
@@ -325,7 +328,7 @@
             // labelSuccessPacketsPercents
             // 
             this.labelSuccessPacketsPercents.AutoSize = true;
-            this.labelSuccessPacketsPercents.Location = new System.Drawing.Point(342, 131);
+            this.labelSuccessPacketsPercents.Location = new System.Drawing.Point(325, 120);
             this.labelSuccessPacketsPercents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSuccessPacketsPercents.Name = "labelSuccessPacketsPercents";
             this.labelSuccessPacketsPercents.Size = new System.Drawing.Size(13, 17);
@@ -335,7 +338,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 131);
+            this.label8.Location = new System.Drawing.Point(6, 120);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(221, 17);
@@ -345,7 +348,7 @@
             // labelGatewayAirTime
             // 
             this.labelGatewayAirTime.AutoSize = true;
-            this.labelGatewayAirTime.Location = new System.Drawing.Point(342, 157);
+            this.labelGatewayAirTime.Location = new System.Drawing.Point(325, 146);
             this.labelGatewayAirTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGatewayAirTime.Name = "labelGatewayAirTime";
             this.labelGatewayAirTime.Size = new System.Drawing.Size(13, 17);
@@ -355,7 +358,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(60, 157);
+            this.label9.Location = new System.Drawing.Point(51, 146);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(138, 17);
@@ -374,16 +377,16 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.labelSuccessfullyReceivedPackets);
-            this.groupBox1.Location = new System.Drawing.Point(13, 287);
+            this.groupBox1.Location = new System.Drawing.Point(13, 311);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(439, 201);
+            this.groupBox1.Size = new System.Drawing.Size(404, 201);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Output";
             // 
             // numericUpDownRx1
             // 
-            this.numericUpDownRx1.Location = new System.Drawing.Point(146, 118);
+            this.numericUpDownRx1.Location = new System.Drawing.Point(207, 116);
             this.numericUpDownRx1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownRx1.Maximum = new decimal(new int[] {
             15,
@@ -407,18 +410,53 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(104, 120);
+            this.label7.Location = new System.Drawing.Point(160, 118);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 17);
             this.label7.TabIndex = 26;
             this.label7.Text = "RX1:";
             // 
+            // numericUpDownSimulateHours
+            // 
+            this.numericUpDownSimulateHours.Location = new System.Drawing.Point(207, 142);
+            this.numericUpDownSimulateHours.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownSimulateHours.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.numericUpDownSimulateHours.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownSimulateHours.Name = "numericUpDownSimulateHours";
+            this.numericUpDownSimulateHours.Size = new System.Drawing.Size(89, 22);
+            this.numericUpDownSimulateHours.TabIndex = 29;
+            this.numericUpDownSimulateHours.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(91, 144);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(108, 17);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Simulate Hours:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 511);
+            this.ClientSize = new System.Drawing.Size(430, 524);
+            this.Controls.Add(this.numericUpDownSimulateHours);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.numericUpDownRx1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
@@ -446,6 +484,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRx1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulateHours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,6 +519,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown numericUpDownRx1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDownSimulateHours;
+        private System.Windows.Forms.Label label10;
     }
 }
 

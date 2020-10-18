@@ -212,6 +212,12 @@ namespace LorawanCollisionsSimulator
             Settings.Rx1PeriodS = (uint)numericUpDownRx1.Value;
         }
 
+        private void ReadSimulateHours()
+        {
+            Settings.SimulateLengthMs = 
+                (uint)numericUpDownSimulateHours.Value * Settings.MS_IN_HOUR;
+        }
+
         private void ReadParametersFromForm()
         {
             // Чтение параметров с формы в настройки
@@ -221,6 +227,7 @@ namespace LorawanCollisionsSimulator
             ReadPacketsPerHour();
             ReadSf();
             ReadRx1();
+            ReadSimulateHours();
 
             Console.WriteLine("Settings.EndNodesCount={0}", Settings.EndNodesCount);
             Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
@@ -229,6 +236,7 @@ namespace LorawanCollisionsSimulator
             Console.WriteLine("Settings.PacketSizeBytes={0}", Settings.PacketSizeBytes);
             Console.WriteLine("Settings.OneByteTransmitTimeUs={0}", Settings.OneByteTransmitTimeUs);
             Console.WriteLine("Settings.Rx1PeriodS={0}", Settings.Rx1PeriodS);
+            Console.WriteLine("Settings.SimulateLengthMs={0}", Settings.SimulateLengthMs);
 
             ShowOnePacketLengthMs();
         }

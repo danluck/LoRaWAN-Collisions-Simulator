@@ -123,7 +123,7 @@ namespace LorawanCollisionsSimulator
                 while(IsUnreceivedPacketsExist(endNodes, gatewayTransmitStartTimeMs))
                 {
                     safetyCounter++;
-                    if (safetyCounter > Settings.PacketsPerHour * Settings.EndNodesCount)
+                    if (safetyCounter > Settings.GetTotalPacketsCount())
                     {
                         Console.WriteLine("CRITICAL ERROR safetyCounter={0}",
                             safetyCounter);
