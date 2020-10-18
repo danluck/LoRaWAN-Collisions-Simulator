@@ -118,19 +118,28 @@ namespace LorawanCollisionsSimulator
 		private void ShowEndNodesTransmitTimes()
 		{
 			uint totalCollisionsCount = 0;
+			bool isFullTrace = false;
 			for (uint i = 0; i < _endNodes.Length; i++)
 			{
-// 				Console.WriteLine("Node {0}", i);
+				if (isFullTrace)
+				{
+					Console.WriteLine("Node {0}", i);
+				}
+				
 				var transmitTimes = _endNodes[i].GetTransmissionLog();
 				for (uint j = 0; j < transmitTimes.Length; j++)
 				{
-// 					Console.WriteLine("[{0}][ch={1}]\t[{2}..{3}]\t[gw={4}][c={5}]",
-// 						j,
-// 						transmitTimes[j].ChannelNumber,
-// 						transmitTimes[j].StartMs,
-// 						transmitTimes[j].EndMs,
-// 						transmitTimes[j].IsPacketCanBeListenByGateway ? 1 : 0,
-// 						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes ? 1 : 0);
+					if (isFullTrace)
+					{
+						Console.WriteLine("[{0}][ch={1}]\t[{2}..{3}]\t[gw={4}][c={5}]",
+						j,
+						transmitTimes[j].ChannelNumber,
+						transmitTimes[j].StartMs,
+						transmitTimes[j].EndMs,
+						transmitTimes[j].IsPacketCanBeListenByGateway ? 1 : 0,
+						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes ? 1 : 0);
+					}
+
 					if (transmitTimes[j].IsPacketCollisionsWithOtherEndNodes)
 					{
 						totalCollisionsCount++;
@@ -138,9 +147,16 @@ namespace LorawanCollisionsSimulator
 				}
 			}
 			uint totalPacketsCount = Settings.PacketsPerHour * Settings.EndNodesCount;
+			float collsionsPercents = (float)totalCollisionsCount * 100.0f / 
+				(float)totalPacketsCount;
 			Console.WriteLine("totalCollisionsCount={0}, totalPacketsCount={1}",
 				totalCollisionsCount,
 				totalPacketsCount);
+			Console.WriteLine("collsionsPercents={0}",
+				collsionsPercents);
+
+			labelEndNodeInitiatedCollisions.Text = 
+				collsionsPercents.ToString();
 		}
 
 		private void CreateGateway()

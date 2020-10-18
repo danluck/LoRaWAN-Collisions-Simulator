@@ -12,8 +12,11 @@ namespace LorawanCollisionsSimulator
 		{
 			for (uint endNodeIndex = 0; endNodeIndex < endNodes.Length; endNodeIndex++)
 			{
-				for (uint k = endNodeIndex + 1; k < endNodes.Length; k++)
+				for (uint k = 0; k < endNodes.Length; k++)
 				{
+					if (k == endNodeIndex)
+						break;
+
 					var transmissionLogInitial = endNodes[endNodeIndex].GetTransmissionLog();
 					for (uint j = 0; j < transmissionLogInitial.Length; j++)
 					{
@@ -29,6 +32,9 @@ namespace LorawanCollisionsSimulator
 							{
 								transmissionLogInitial[j].IsPacketCollisionsWithOtherEndNodes = true;
 								transmissionLogSecond[m].IsPacketCollisionsWithOtherEndNodes = true;
+
+// 								Console.WriteLine("endNodeIndex=[{0}][n={1}], k=[{2}][n={3}]", 
+// 									endNodeIndex, j, k, m);
 							}
 						}
 					}

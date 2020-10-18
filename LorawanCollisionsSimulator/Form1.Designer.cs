@@ -42,6 +42,8 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.labelAirTimePercents = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.labelEndNodeInitiatedCollisions = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
@@ -59,7 +61,7 @@
 			// 
 			// buttonDoEmulation
 			// 
-			this.buttonDoEmulation.Location = new System.Drawing.Point(31, 216);
+			this.buttonDoEmulation.Location = new System.Drawing.Point(36, 216);
 			this.buttonDoEmulation.Name = "buttonDoEmulation";
 			this.buttonDoEmulation.Size = new System.Drawing.Size(75, 23);
 			this.buttonDoEmulation.TabIndex = 2;
@@ -93,7 +95,7 @@
 			// checkBoxIsConfirmed
 			// 
 			this.checkBoxIsConfirmed.AutoSize = true;
-			this.checkBoxIsConfirmed.Location = new System.Drawing.Point(31, 193);
+			this.checkBoxIsConfirmed.Location = new System.Drawing.Point(36, 193);
 			this.checkBoxIsConfirmed.Name = "checkBoxIsConfirmed";
 			this.checkBoxIsConfirmed.Size = new System.Drawing.Size(121, 17);
 			this.checkBoxIsConfirmed.TabIndex = 4;
@@ -226,17 +228,37 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(76, 162);
+			this.label4.Location = new System.Drawing.Point(33, 162);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(58, 13);
+			this.label4.Size = new System.Drawing.Size(109, 13);
 			this.label4.TabIndex = 13;
-			this.label4.Text = "Air time, %:";
+			this.label4.Text = "End Node Air time, %:";
+			// 
+			// labelEndNodeInitiatedCollisions
+			// 
+			this.labelEndNodeInitiatedCollisions.AutoSize = true;
+			this.labelEndNodeInitiatedCollisions.Location = new System.Drawing.Point(173, 257);
+			this.labelEndNodeInitiatedCollisions.Name = "labelEndNodeInitiatedCollisions";
+			this.labelEndNodeInitiatedCollisions.Size = new System.Drawing.Size(10, 13);
+			this.labelEndNodeInitiatedCollisions.TabIndex = 16;
+			this.labelEndNodeInitiatedCollisions.Text = "-";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(12, 257);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(158, 13);
+			this.label5.TabIndex = 15;
+			this.label5.Text = "End Node Initiated Collisions, %:";
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(703, 415);
+			this.Controls.Add(this.labelEndNodeInitiatedCollisions);
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.labelAirTimePercents);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.numericUpDownSf);
@@ -278,6 +300,8 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label labelAirTimePercents;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label labelEndNodeInitiatedCollisions;
+		private System.Windows.Forms.Label label5;
 	}
 }
 
