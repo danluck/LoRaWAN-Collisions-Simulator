@@ -8,11 +8,14 @@ namespace LorawanCollisionsSimulator
 {
 	struct TimeTx
 	{
-		int StartMs;
-		int EndMs;
+		public uint StartMs;
+		public uint EndMs;
 	}
 
 	interface IEndNode
 	{
+		TimeTx[] GetTransmitTimes();
+
+		uint GetOnePacketTransmitTimeMs();
 	}
 }
