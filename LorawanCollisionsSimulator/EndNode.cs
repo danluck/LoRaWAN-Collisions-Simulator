@@ -13,7 +13,7 @@ namespace LorawanCollisionsSimulator
 			CalculateTransmitTime();
 		}
 
-		public TransmissionLog[] GetTransmitTimes()
+		public TransmissionLog[] GetTransmissionLog()
 		{
 			return _transmissionLogs;
 		}

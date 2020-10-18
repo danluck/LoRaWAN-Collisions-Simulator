@@ -20,11 +20,16 @@ namespace LorawanCollisionsSimulator
 		/// Равен true, если во время передачи пакета БС не вела передачу данных
 		/// </summary>
 		public bool IsPacketCanBeListenByGateway;
+
+		/// <summary>
+		/// Равен true, если пакет попал в коллизию с другим конечным устройством
+		/// </summary>
+		public bool IsPacketCollisionsWithOtherEndNodes;
 	}
 
 	interface IEndNode
 	{
-		TransmissionLog[] GetTransmitTimes();
+		TransmissionLog[] GetTransmissionLog();
 
 		uint GetOnePacketTransmitTimeMs();
 	}

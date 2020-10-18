@@ -31,9 +31,11 @@ namespace LorawanCollisionsSimulator
 			Console.WriteLine("Settings.IsConfirmed={0}", Settings.IsConfirmed);
 
 			CreateEndNodes();
+			EndNodesCollisionFinder.DoCollisionFind(_endNodes);
 			ShowEndNodesTransmitTimes();
 
 			CreateGateway();
+			ShowGatewayTxTime();
 		}
 
 		private void CreateEndNodes()
@@ -49,14 +51,16 @@ namespace LorawanCollisionsSimulator
 		{
 			for (uint i = 0; i < _endNodes.Length; i++)
 			{
-				Console.Write("Node {0}.", i);
-				var transmitTimes = _endNodes[i].GetTransmitTimes();
+				Console.WriteLine("Node {0}", i);
+				var transmitTimes = _endNodes[i].GetTransmissionLog();
 				for (uint j = 0; j < transmitTimes.Length; j++)
 				{
-					Console.Write("[{0}][{1}..{2}] ",
+					Console.WriteLine("[ch={0}][{1}..{2}][gw={3}][c={4}]",
 						transmitTimes[j].ChannelNumber,
 						transmitTimes[j].StartMs,
-						transmitTimes[j].EndMs);
+						transmitTimes[j].EndMs,
+						transmitTimes[j].IsPacketCanBeListenByGateway,
+						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes);
 				}
 				Console.WriteLine("");
 			}
@@ -65,6 +69,12 @@ namespace LorawanCollisionsSimulator
 		private void CreateGateway()
 		{
 			_gateway = new Gateway();
+		}
+		private void ShowGatewayTxTime()
+		{
+			var gatewayTransmissionLog = _gateway.GetGatewayTx(_endNodes);
+			Console.WriteLine("gatewayTransmissionLog.Count={0}",
+				gatewayTransmissionLog.Count);
 		}
 
 		private IEndNode[] _endNodes;
