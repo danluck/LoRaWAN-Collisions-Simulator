@@ -210,6 +210,7 @@ namespace LorawanCollisionsSimulator
         private void ReadRx1()
         {
             Settings.Rx1PeriodS = (uint)numericUpDownRx1.Value;
+            Settings.Rx2PeriodS = Settings.Rx1PeriodS + 1;
         }
 
         private void ReadSimulateHours()
