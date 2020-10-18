@@ -139,8 +139,9 @@ namespace LorawanCollisionsSimulator
 
                     // Теперь поиск следует начинать с даты завершения отправки
                     // downlink-пакета в RX1
-                    gatewayTransmitStartTimeMs = 
-                        _gatewayTransmissionLog.Last<GatewayTransmissionLog>().Rx1EndTimeMs;
+                    gatewayTransmitStartTimeMs =
+                        transmissionLog.EndMs;
+                        //_gatewayTransmissionLog.Last<GatewayTransmissionLog>().Rx1EndTimeMs;
                 }
 			}
 			else

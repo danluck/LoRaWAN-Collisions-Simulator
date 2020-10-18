@@ -8,7 +8,7 @@ namespace LorawanCollisionsSimulator
 {
 	static class Settings
 	{
-		public static uint Rx1PeriodS = 3;
+		public static uint Rx1PeriodS = 1;
 		public static uint Rx2PeriodS = Rx1PeriodS + 1;
 
 		public static bool IsConfirmed = false;

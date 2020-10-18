@@ -53,17 +53,20 @@
             this.labelGatewayAirTime = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDownRx1 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSf)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRx1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelEndNodesCount
             // 
             this.labelEndNodesCount.AutoSize = true;
-            this.labelEndNodesCount.Location = new System.Drawing.Point(16, 11);
+            this.labelEndNodesCount.Location = new System.Drawing.Point(17, 11);
             this.labelEndNodesCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndNodesCount.Name = "labelEndNodesCount";
             this.labelEndNodesCount.Size = new System.Drawing.Size(123, 17);
@@ -72,7 +75,7 @@
             // 
             // buttonDoEmulation
             // 
-            this.buttonDoEmulation.Location = new System.Drawing.Point(13, 194);
+            this.buttonDoEmulation.Location = new System.Drawing.Point(13, 221);
             this.buttonDoEmulation.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDoEmulation.Name = "buttonDoEmulation";
             this.buttonDoEmulation.Size = new System.Drawing.Size(216, 59);
@@ -108,12 +111,12 @@
             // checkBoxIsConfirmed
             // 
             this.checkBoxIsConfirmed.AutoSize = true;
-            this.checkBoxIsConfirmed.Location = new System.Drawing.Point(85, 121);
+            this.checkBoxIsConfirmed.Location = new System.Drawing.Point(85, 148);
             this.checkBoxIsConfirmed.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxIsConfirmed.Name = "checkBoxIsConfirmed";
-            this.checkBoxIsConfirmed.Size = new System.Drawing.Size(159, 21);
+            this.checkBoxIsConfirmed.Size = new System.Drawing.Size(94, 21);
             this.checkBoxIsConfirmed.TabIndex = 4;
-            this.checkBoxIsConfirmed.Text = "IsConfirmedTransmit";
+            this.checkBoxIsConfirmed.Text = "Confirmed";
             this.checkBoxIsConfirmed.UseVisualStyleBackColor = true;
             this.checkBoxIsConfirmed.CheckedChanged += new System.EventHandler(this.checkBoxIsConfirmed_CheckedChanged);
             // 
@@ -144,7 +147,7 @@
             // labelPacketsPerHourText
             // 
             this.labelPacketsPerHourText.AutoSize = true;
-            this.labelPacketsPerHourText.Location = new System.Drawing.Point(16, 38);
+            this.labelPacketsPerHourText.Location = new System.Drawing.Point(18, 38);
             this.labelPacketsPerHourText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPacketsPerHourText.Name = "labelPacketsPerHourText";
             this.labelPacketsPerHourText.Size = new System.Drawing.Size(123, 17);
@@ -178,17 +181,17 @@
             // labelPacketSizeText
             // 
             this.labelPacketSizeText.AutoSize = true;
-            this.labelPacketSizeText.Location = new System.Drawing.Point(52, 72);
+            this.labelPacketSizeText.Location = new System.Drawing.Point(19, 65);
             this.labelPacketSizeText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPacketSizeText.Name = "labelPacketSizeText";
-            this.labelPacketSizeText.Size = new System.Drawing.Size(86, 17);
+            this.labelPacketSizeText.Size = new System.Drawing.Size(129, 17);
             this.labelPacketSizeText.TabIndex = 7;
-            this.labelPacketSizeText.Text = "Packet Size:";
+            this.labelPacketSizeText.Text = "Packet Size, Bytes:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 146);
+            this.label1.Location = new System.Drawing.Point(52, 173);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 17);
@@ -198,7 +201,7 @@
             // labelOnePacketLengthMs
             // 
             this.labelOnePacketLengthMs.AutoSize = true;
-            this.labelOnePacketLengthMs.Location = new System.Drawing.Point(187, 146);
+            this.labelOnePacketLengthMs.Location = new System.Drawing.Point(187, 173);
             this.labelOnePacketLengthMs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOnePacketLengthMs.Name = "labelOnePacketLengthMs";
             this.labelOnePacketLengthMs.Size = new System.Drawing.Size(13, 17);
@@ -232,7 +235,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(111, 93);
+            this.label2.Location = new System.Drawing.Point(114, 93);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 17);
@@ -242,7 +245,7 @@
             // labelAirTimePercents
             // 
             this.labelAirTimePercents.AutoSize = true;
-            this.labelAirTimePercents.Location = new System.Drawing.Point(187, 173);
+            this.labelAirTimePercents.Location = new System.Drawing.Point(187, 200);
             this.labelAirTimePercents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAirTimePercents.Name = "labelAirTimePercents";
             this.labelAirTimePercents.Size = new System.Drawing.Size(13, 17);
@@ -252,7 +255,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 173);
+            this.label4.Location = new System.Drawing.Point(44, 200);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 17);
@@ -371,18 +374,53 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.labelSuccessfullyReceivedPackets);
-            this.groupBox1.Location = new System.Drawing.Point(13, 260);
+            this.groupBox1.Location = new System.Drawing.Point(13, 287);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(439, 201);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Output";
             // 
+            // numericUpDownRx1
+            // 
+            this.numericUpDownRx1.Location = new System.Drawing.Point(146, 118);
+            this.numericUpDownRx1.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownRx1.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDownRx1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRx1.Name = "numericUpDownRx1";
+            this.numericUpDownRx1.Size = new System.Drawing.Size(89, 22);
+            this.numericUpDownRx1.TabIndex = 27;
+            this.numericUpDownRx1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(104, 120);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 17);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "RX1:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 472);
+            this.ClientSize = new System.Drawing.Size(465, 511);
+            this.Controls.Add(this.numericUpDownRx1);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelAirTimePercents);
             this.Controls.Add(this.label4);
@@ -407,6 +445,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSf)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRx1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,6 +478,8 @@
         private System.Windows.Forms.Label labelGatewayAirTime;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDownRx1;
+        private System.Windows.Forms.Label label7;
     }
 }
 
