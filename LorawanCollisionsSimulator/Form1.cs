@@ -18,6 +18,9 @@ namespace LorawanCollisionsSimulator
 			InitializeComponent();
 
 			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
+
+			Console.WindowHeight = 60;
+			Console.WindowWidth = 200;
 		}
 
 		private void buttonDoEmulation_Click(object sender, EventArgs e)
@@ -26,6 +29,7 @@ namespace LorawanCollisionsSimulator
 			Settings.EndNodesCount = (uint)numericUpDownEndNodesCount.Value;
 			Settings.IsConfirmed = checkBoxIsConfirmed.Checked;
 
+			Console.WriteLine("####################################");
 			Console.WriteLine("Settings.EndNodesCount={0}", Settings.EndNodesCount);
 			Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
 			Console.WriteLine("Settings.IsConfirmed={0}", Settings.IsConfirmed);
@@ -49,21 +53,28 @@ namespace LorawanCollisionsSimulator
 
 		private void ShowEndNodesTransmitTimes()
 		{
+			uint totalCollisionsCount = 0;
 			for (uint i = 0; i < _endNodes.Length; i++)
 			{
 				Console.WriteLine("Node {0}", i);
 				var transmitTimes = _endNodes[i].GetTransmissionLog();
 				for (uint j = 0; j < transmitTimes.Length; j++)
 				{
-					Console.WriteLine("[ch={0}][{1}..{2}][gw={3}][c={4}]",
+					Console.WriteLine("[{0}][ch={1}][{2}..{3}][gw={4}][c={5}]",
+						j,
 						transmitTimes[j].ChannelNumber,
 						transmitTimes[j].StartMs,
 						transmitTimes[j].EndMs,
 						transmitTimes[j].IsPacketCanBeListenByGateway,
 						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes);
+					if (transmitTimes[j].IsPacketCollisionsWithOtherEndNodes)
+					{
+						totalCollisionsCount++;
+					}
 				}
-				Console.WriteLine("");
 			}
+			Console.WriteLine("totalCollisionsCount={0}",
+				totalCollisionsCount);
 		}
 
 		private void CreateGateway()
