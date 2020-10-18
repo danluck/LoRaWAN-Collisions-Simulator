@@ -32,6 +32,8 @@ namespace LorawanCollisionsSimulator
 
 			CreateEndNodes();
 			ShowEndNodesTransmitTimes();
+
+			CreateGateway();
 		}
 
 		private void CreateEndNodes()
@@ -58,6 +60,12 @@ namespace LorawanCollisionsSimulator
 			}
 		}
 
+		private void CreateGateway()
+		{
+			_gateway = new GateWay();
+		}
+
 		private IEndNode[] _endNodes;
+		private GateWay _gateway;
 	}
 }
