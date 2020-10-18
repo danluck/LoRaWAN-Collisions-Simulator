@@ -33,7 +33,7 @@ namespace LorawanCollisionsSimulator
 			_gatewayTransmissionLog = new List<GatewayTransmissionLog>();
 		}
 
-        public List<GatewayTransmissionLog> GetGateweayTransmissionLog()
+        public List<GatewayTransmissionLog> GetGatewayTransmissionLog()
         {
             return _gatewayTransmissionLog;
         }

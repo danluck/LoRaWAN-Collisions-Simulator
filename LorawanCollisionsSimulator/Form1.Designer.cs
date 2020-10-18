@@ -50,10 +50,14 @@
             this.labelSuccessfullyReceivedPackets = new System.Windows.Forms.Label();
             this.labelSuccessPacketsPercents = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.labelGatewayAirTime = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSf)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelEndNodesCount
@@ -68,10 +72,10 @@
             // 
             // buttonDoEmulation
             // 
-            this.buttonDoEmulation.Location = new System.Drawing.Point(48, 266);
-            this.buttonDoEmulation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDoEmulation.Location = new System.Drawing.Point(13, 194);
+            this.buttonDoEmulation.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDoEmulation.Name = "buttonDoEmulation";
-            this.buttonDoEmulation.Size = new System.Drawing.Size(100, 28);
+            this.buttonDoEmulation.Size = new System.Drawing.Size(216, 59);
             this.buttonDoEmulation.TabIndex = 2;
             this.buttonDoEmulation.Text = "DoEmulation";
             this.buttonDoEmulation.UseVisualStyleBackColor = true;
@@ -79,8 +83,8 @@
             // 
             // numericUpDownEndNodesCount
             // 
-            this.numericUpDownEndNodesCount.Location = new System.Drawing.Point(161, 9);
-            this.numericUpDownEndNodesCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownEndNodesCount.Location = new System.Drawing.Point(146, 9);
+            this.numericUpDownEndNodesCount.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownEndNodesCount.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -104,8 +108,8 @@
             // checkBoxIsConfirmed
             // 
             this.checkBoxIsConfirmed.AutoSize = true;
-            this.checkBoxIsConfirmed.Location = new System.Drawing.Point(48, 238);
-            this.checkBoxIsConfirmed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxIsConfirmed.Location = new System.Drawing.Point(85, 121);
+            this.checkBoxIsConfirmed.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxIsConfirmed.Name = "checkBoxIsConfirmed";
             this.checkBoxIsConfirmed.Size = new System.Drawing.Size(159, 21);
             this.checkBoxIsConfirmed.TabIndex = 4;
@@ -115,8 +119,8 @@
             // 
             // numericUpDownPacketsPerHour
             // 
-            this.numericUpDownPacketsPerHour.Location = new System.Drawing.Point(161, 41);
-            this.numericUpDownPacketsPerHour.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownPacketsPerHour.Location = new System.Drawing.Point(146, 36);
+            this.numericUpDownPacketsPerHour.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownPacketsPerHour.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -140,7 +144,7 @@
             // labelPacketsPerHourText
             // 
             this.labelPacketsPerHourText.AutoSize = true;
-            this.labelPacketsPerHourText.Location = new System.Drawing.Point(16, 43);
+            this.labelPacketsPerHourText.Location = new System.Drawing.Point(16, 38);
             this.labelPacketsPerHourText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPacketsPerHourText.Name = "labelPacketsPerHourText";
             this.labelPacketsPerHourText.Size = new System.Drawing.Size(123, 17);
@@ -149,8 +153,8 @@
             // 
             // numericUpDownPacketSize
             // 
-            this.numericUpDownPacketSize.Location = new System.Drawing.Point(161, 76);
-            this.numericUpDownPacketSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownPacketSize.Location = new System.Drawing.Point(146, 63);
+            this.numericUpDownPacketSize.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownPacketSize.Maximum = new decimal(new int[] {
             222,
             0,
@@ -174,7 +178,7 @@
             // labelPacketSizeText
             // 
             this.labelPacketSizeText.AutoSize = true;
-            this.labelPacketSizeText.Location = new System.Drawing.Point(52, 85);
+            this.labelPacketSizeText.Location = new System.Drawing.Point(52, 72);
             this.labelPacketSizeText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPacketSizeText.Name = "labelPacketSizeText";
             this.labelPacketSizeText.Size = new System.Drawing.Size(86, 17);
@@ -184,7 +188,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 172);
+            this.label1.Location = new System.Drawing.Point(52, 146);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 17);
@@ -194,7 +198,7 @@
             // labelOnePacketLengthMs
             // 
             this.labelOnePacketLengthMs.AutoSize = true;
-            this.labelOnePacketLengthMs.Location = new System.Drawing.Point(187, 172);
+            this.labelOnePacketLengthMs.Location = new System.Drawing.Point(187, 146);
             this.labelOnePacketLengthMs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOnePacketLengthMs.Name = "labelOnePacketLengthMs";
             this.labelOnePacketLengthMs.Size = new System.Drawing.Size(13, 17);
@@ -203,8 +207,8 @@
             // 
             // numericUpDownSf
             // 
-            this.numericUpDownSf.Location = new System.Drawing.Point(161, 117);
-            this.numericUpDownSf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownSf.Location = new System.Drawing.Point(146, 91);
+            this.numericUpDownSf.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownSf.Maximum = new decimal(new int[] {
             12,
             0,
@@ -228,7 +232,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(111, 119);
+            this.label2.Location = new System.Drawing.Point(111, 93);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 17);
@@ -238,7 +242,7 @@
             // labelAirTimePercents
             // 
             this.labelAirTimePercents.AutoSize = true;
-            this.labelAirTimePercents.Location = new System.Drawing.Point(187, 199);
+            this.labelAirTimePercents.Location = new System.Drawing.Point(187, 173);
             this.labelAirTimePercents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAirTimePercents.Name = "labelAirTimePercents";
             this.labelAirTimePercents.Size = new System.Drawing.Size(13, 17);
@@ -248,7 +252,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 199);
+            this.label4.Location = new System.Drawing.Point(44, 173);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 17);
@@ -258,7 +262,7 @@
             // labelEndNodeInitiatedCollisions
             // 
             this.labelEndNodeInitiatedCollisions.AutoSize = true;
-            this.labelEndNodeInitiatedCollisions.Location = new System.Drawing.Point(231, 316);
+            this.labelEndNodeInitiatedCollisions.Location = new System.Drawing.Point(342, 34);
             this.labelEndNodeInitiatedCollisions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndNodeInitiatedCollisions.Name = "labelEndNodeInitiatedCollisions";
             this.labelEndNodeInitiatedCollisions.Size = new System.Drawing.Size(13, 17);
@@ -268,27 +272,27 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 316);
+            this.label5.Location = new System.Drawing.Point(24, 34);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(211, 17);
+            this.label5.Size = new System.Drawing.Size(217, 17);
             this.label5.TabIndex = 15;
-            this.label5.Text = "End Node Initiated Collisions, %:";
+            this.label5.Text = "End Nodes Caused Collisions, %:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 347);
+            this.label3.Location = new System.Drawing.Point(24, 65);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 17);
+            this.label3.Size = new System.Drawing.Size(312, 17);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Gateway Skipped Packets:";
+            this.label3.Text = "Gateway Skipped Packets While Send Downlink:";
             // 
             // labelGatewaySkippedPackets
             // 
             this.labelGatewaySkippedPackets.AutoSize = true;
-            this.labelGatewaySkippedPackets.Location = new System.Drawing.Point(231, 347);
+            this.labelGatewaySkippedPackets.Location = new System.Drawing.Point(342, 65);
             this.labelGatewaySkippedPackets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGatewaySkippedPackets.Name = "labelGatewaySkippedPackets";
             this.labelGatewaySkippedPackets.Size = new System.Drawing.Size(13, 17);
@@ -298,7 +302,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 380);
+            this.label6.Location = new System.Drawing.Point(24, 98);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(201, 17);
@@ -308,7 +312,7 @@
             // labelSuccessfullyReceivedPackets
             // 
             this.labelSuccessfullyReceivedPackets.AutoSize = true;
-            this.labelSuccessfullyReceivedPackets.Location = new System.Drawing.Point(231, 380);
+            this.labelSuccessfullyReceivedPackets.Location = new System.Drawing.Point(342, 98);
             this.labelSuccessfullyReceivedPackets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSuccessfullyReceivedPackets.Name = "labelSuccessfullyReceivedPackets";
             this.labelSuccessfullyReceivedPackets.Size = new System.Drawing.Size(13, 17);
@@ -318,7 +322,7 @@
             // labelSuccessPacketsPercents
             // 
             this.labelSuccessPacketsPercents.AutoSize = true;
-            this.labelSuccessPacketsPercents.Location = new System.Drawing.Point(231, 413);
+            this.labelSuccessPacketsPercents.Location = new System.Drawing.Point(342, 131);
             this.labelSuccessPacketsPercents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSuccessPacketsPercents.Name = "labelSuccessPacketsPercents";
             this.labelSuccessPacketsPercents.Size = new System.Drawing.Size(13, 17);
@@ -328,26 +332,58 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 413);
+            this.label8.Location = new System.Drawing.Point(15, 131);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(221, 17);
             this.label8.TabIndex = 21;
             this.label8.Text = "Successfully received packets, %:";
             // 
+            // labelGatewayAirTime
+            // 
+            this.labelGatewayAirTime.AutoSize = true;
+            this.labelGatewayAirTime.Location = new System.Drawing.Point(342, 157);
+            this.labelGatewayAirTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGatewayAirTime.Name = "labelGatewayAirTime";
+            this.labelGatewayAirTime.Size = new System.Drawing.Size(13, 17);
+            this.labelGatewayAirTime.TabIndex = 24;
+            this.labelGatewayAirTime.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(60, 157);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(138, 17);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Gateway Air time, %:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.labelGatewayAirTime);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.labelEndNodeInitiatedCollisions);
+            this.groupBox1.Controls.Add(this.labelSuccessPacketsPercents);
+            this.groupBox1.Controls.Add(this.labelGatewaySkippedPackets);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.labelSuccessfullyReceivedPackets);
+            this.groupBox1.Location = new System.Drawing.Point(13, 260);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(439, 201);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Output";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 533);
-            this.Controls.Add(this.labelSuccessPacketsPercents);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.labelSuccessfullyReceivedPackets);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.labelGatewaySkippedPackets);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.labelEndNodeInitiatedCollisions);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(465, 472);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelAirTimePercents);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDownSf);
@@ -362,13 +398,15 @@
             this.Controls.Add(this.numericUpDownEndNodesCount);
             this.Controls.Add(this.buttonDoEmulation);
             this.Controls.Add(this.labelEndNodesCount);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "LorawanCollisionsSimulator";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSf)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,6 +436,9 @@
         private System.Windows.Forms.Label labelSuccessfullyReceivedPackets;
         private System.Windows.Forms.Label labelSuccessPacketsPercents;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelGatewayAirTime;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

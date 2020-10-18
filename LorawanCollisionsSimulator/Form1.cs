@@ -47,7 +47,7 @@ namespace LorawanCollisionsSimulator
 
         private void ShowGatewayTxTime()
         {
-            var gatewayTransmissionLog = _gateway.GetGateweayTransmissionLog();
+            var gatewayTransmissionLog = _gateway.GetGatewayTransmissionLog();
             Console.WriteLine("gatewayTransmissionLog.Count={0}",
                 gatewayTransmissionLog.Count);
         }
@@ -96,7 +96,23 @@ namespace LorawanCollisionsSimulator
             float totalPackets = Settings.GetTotalPacketsCount();
             float successPercent = (float)successPackets * 100.0f / totalPackets;
             labelSuccessPacketsPercents.Text = successPercent.ToString();
+        }
 
+        private void ShowGatewayAirTime()
+        {
+            uint transmitTimeMs = 0;
+            var gatewayTransmissionLog = _gateway.GetGatewayTransmissionLog();
+            foreach(var gw in gatewayTransmissionLog)
+            {
+                var rx1TimeMs = gw.Rx1EndTimeMs - gw.Rx1StartTimeMs;
+                var rx2TimeMs = gw.Rx2EndTimeMs - gw.Rx2StartTimeMs;
+
+                transmitTimeMs += (rx1TimeMs + rx2TimeMs);
+            }
+
+            float gatewayAirTimePercents = (float)transmitTimeMs * 100.0f / 
+                (float)Settings.SimulateLengthMs;
+            labelGatewayAirTime.Text = gatewayAirTimePercents.ToString();
         }
 
         private void ShowOnePacketLengthMs()
@@ -107,10 +123,10 @@ namespace LorawanCollisionsSimulator
 
         private void ShowAirTime()
         {
-            float hoursTimeMs = 60 * 60 * 1000;
             float endNodeTransmitTimeMs = EndNode.GetOnePacketTransmitTimeMs() *
                 Settings.PacketsPerHour;
-            labelAirTimePercents.Text = (endNodeTransmitTimeMs * 100 / hoursTimeMs).ToString();
+            labelAirTimePercents.Text = (endNodeTransmitTimeMs * 100 / 
+                Settings.SimulateLengthMs).ToString();
         }
 
         private void ShowCalculatedParameters()
@@ -226,13 +242,7 @@ namespace LorawanCollisionsSimulator
             ShowGatewayTxTime();
             ShowPacketsThatWasSkippedByGateway();
             ShowSuccessfullyReceivedPackets();
-
-            // Количество пакетов, которое могло бы быть принято, если бы БС могла
-            // слушать эфир во время передачи
-            uint theoreticalPacketsReceived =
-                _gateway.GetPacketsThatNotInEndNodeCollisions(_endNodes);
-            Console.WriteLine("theoretical packetsReceived={0}",
-                theoreticalPacketsReceived);
+            ShowGatewayAirTime();
         }
 
         private void numericUpDownPacketsPerHour_ValueChanged(object sender, EventArgs e)
