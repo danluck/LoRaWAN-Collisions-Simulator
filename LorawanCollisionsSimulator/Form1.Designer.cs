@@ -40,6 +40,8 @@
 			this.labelOnePacketLengthMs = new System.Windows.Forms.Label();
 			this.numericUpDownSf = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
+			this.labelAirTimePercents = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
@@ -86,6 +88,7 @@
             0,
             0,
             0});
+			this.numericUpDownEndNodesCount.ValueChanged += new System.EventHandler(this.numericUpDownEndNodesCount_ValueChanged);
 			// 
 			// checkBoxIsConfirmed
 			// 
@@ -211,11 +214,31 @@
 			this.label2.TabIndex = 11;
 			this.label2.Text = "SF:";
 			// 
+			// labelAirTimePercents
+			// 
+			this.labelAirTimePercents.AutoSize = true;
+			this.labelAirTimePercents.Location = new System.Drawing.Point(140, 162);
+			this.labelAirTimePercents.Name = "labelAirTimePercents";
+			this.labelAirTimePercents.Size = new System.Drawing.Size(10, 13);
+			this.labelAirTimePercents.TabIndex = 14;
+			this.labelAirTimePercents.Text = "-";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(76, 162);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(58, 13);
+			this.label4.TabIndex = 13;
+			this.label4.Text = "Air time, %:";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(703, 415);
+			this.Controls.Add(this.labelAirTimePercents);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.numericUpDownSf);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.labelOnePacketLengthMs);
@@ -253,6 +276,8 @@
 		private System.Windows.Forms.Label labelOnePacketLengthMs;
 		private System.Windows.Forms.NumericUpDown numericUpDownSf;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label labelAirTimePercents;
+		private System.Windows.Forms.Label label4;
 	}
 }
 

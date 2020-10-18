@@ -24,17 +24,32 @@ namespace LorawanCollisionsSimulator
 			numericUpDownSf.Maximum = Settings.SF_MAX;
 			numericUpDownSf.Value = Settings.SF_DEFAULT;
 
+			numericUpDownEndNodesCount.Value = Settings.EndNodesCount;
 			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
 			numericUpDownPacketsPerHour.Value = Settings.PacketsPerHour;
 			numericUpDownPacketSize.Value = Settings.PacketSizeBytes;
 
-			ShowOnePacketLengthMs();
+			ShowCalculatedParameters();
 		}
 
 		private void ShowOnePacketLengthMs()
 		{
 			labelOnePacketLengthMs.Text = 
 				EndNode.GetOnePacketTransmitTimeMs().ToString();
+		}
+
+		private void ShowAirTime()
+		{
+			float hoursTimeMs = 60 * 60 * 1000;
+			float endNodeTransmitTimeMs = EndNode.GetOnePacketTransmitTimeMs() *
+				Settings.PacketsPerHour;
+			labelAirTimePercents.Text = (endNodeTransmitTimeMs * 100 / hoursTimeMs).ToString();
+		}
+
+		private void ShowCalculatedParameters()
+		{
+			ShowOnePacketLengthMs();
+			ShowAirTime();
 		}
 
 		private void ReadPacketsPerHour()
@@ -54,10 +69,15 @@ namespace LorawanCollisionsSimulator
 					(uint)numericUpDownSf.Value);
 		}
 
+		private void ReadEndNodesCount()
+		{
+			Settings.EndNodesCount = (uint)numericUpDownEndNodesCount.Value;
+		}
+
 		private void ReadParametersFromForm()
 		{
 			// Чтение параметров с формы в настройки
-			Settings.EndNodesCount = (uint)numericUpDownEndNodesCount.Value;
+			ReadEndNodesCount();
 			Settings.IsConfirmed = checkBoxIsConfirmed.Checked;
 			ReadPacketSize();
 			ReadPacketsPerHour();
@@ -100,25 +120,27 @@ namespace LorawanCollisionsSimulator
 			uint totalCollisionsCount = 0;
 			for (uint i = 0; i < _endNodes.Length; i++)
 			{
-				Console.WriteLine("Node {0}", i);
+// 				Console.WriteLine("Node {0}", i);
 				var transmitTimes = _endNodes[i].GetTransmissionLog();
 				for (uint j = 0; j < transmitTimes.Length; j++)
 				{
-					Console.WriteLine("[{0}][ch={1}]\t[{2}..{3}]\t[gw={4}][c={5}]",
-						j,
-						transmitTimes[j].ChannelNumber,
-						transmitTimes[j].StartMs,
-						transmitTimes[j].EndMs,
-						transmitTimes[j].IsPacketCanBeListenByGateway ? 1 : 0,
-						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes ? 1 : 0);
+// 					Console.WriteLine("[{0}][ch={1}]\t[{2}..{3}]\t[gw={4}][c={5}]",
+// 						j,
+// 						transmitTimes[j].ChannelNumber,
+// 						transmitTimes[j].StartMs,
+// 						transmitTimes[j].EndMs,
+// 						transmitTimes[j].IsPacketCanBeListenByGateway ? 1 : 0,
+// 						transmitTimes[j].IsPacketCollisionsWithOtherEndNodes ? 1 : 0);
 					if (transmitTimes[j].IsPacketCollisionsWithOtherEndNodes)
 					{
 						totalCollisionsCount++;
 					}
 				}
 			}
-			Console.WriteLine("totalCollisionsCount={0}",
-				totalCollisionsCount);
+			uint totalPacketsCount = Settings.PacketsPerHour * Settings.EndNodesCount;
+			Console.WriteLine("totalCollisionsCount={0}, totalPacketsCount={1}",
+				totalCollisionsCount,
+				totalPacketsCount);
 		}
 
 		private void CreateGateway()
@@ -138,19 +160,25 @@ namespace LorawanCollisionsSimulator
 		private void numericUpDownPacketsPerHour_ValueChanged(object sender, EventArgs e)
 		{
 			ReadPacketsPerHour();
-			ShowOnePacketLengthMs();
+			ShowCalculatedParameters();
 		}
 
 		private void numericUpDownPacketSize_ValueChanged(object sender, EventArgs e)
 		{
 			ReadPacketSize();
-			ShowOnePacketLengthMs();
+			ShowCalculatedParameters();
 		}
 
 		private void numericUpDownSf_ValueChanged(object sender, EventArgs e)
 		{
 			ReadSf();
-			ShowOnePacketLengthMs();
+			ShowCalculatedParameters();
+		}
+
+		private void numericUpDownEndNodesCount_ValueChanged(object sender, EventArgs e)
+		{
+			ReadEndNodesCount();
+			ShowCalculatedParameters();
 		}
 	}
 }
