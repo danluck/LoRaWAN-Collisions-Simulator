@@ -16,14 +16,19 @@ namespace LorawanCollisionsSimulator
 		public Form1()
 		{
 			InitializeComponent();
+
+			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
 		}
 
 		private void buttonDoEmulation_Click(object sender, EventArgs e)
 		{
+			// Чтение параметров с формы в настройки
 			Settings.EndNodesCount = (uint)numericUpDownEndNodesCount.Value;
+			Settings.IsConfirmed = checkBoxIsConfirmed.Checked;
 
 			Console.WriteLine("Settings.EndNodesCount={0}", Settings.EndNodesCount);
 			Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
+			Console.WriteLine("Settings.IsConfirmed={0}", Settings.IsConfirmed);
 
 			CreateEndNodes();
 			ShowEndNodesTransmitTimes();

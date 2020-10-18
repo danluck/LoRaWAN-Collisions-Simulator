@@ -11,6 +11,8 @@ namespace LorawanCollisionsSimulator
 		public static uint Rx1PeriodS = 3;
 		public static uint Rx2PeriodS = Rx1PeriodS + 1;
 
+		public static bool IsConfirmed = true;
+
 		public static uint EndNodesCount;
 
 		public static uint SimulateLengthMs = 60 * 60 * 1000;

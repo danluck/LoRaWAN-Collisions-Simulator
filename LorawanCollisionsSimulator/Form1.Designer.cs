@@ -31,6 +31,7 @@
 			this.labelEndNodesCount = new System.Windows.Forms.Label();
 			this.buttonDoEmulation = new System.Windows.Forms.Button();
 			this.numericUpDownEndNodesCount = new System.Windows.Forms.NumericUpDown();
+			this.checkBoxIsConfirmed = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -45,7 +46,7 @@
 			// 
 			// buttonDoEmulation
 			// 
-			this.buttonDoEmulation.Location = new System.Drawing.Point(15, 25);
+			this.buttonDoEmulation.Location = new System.Drawing.Point(15, 87);
 			this.buttonDoEmulation.Name = "buttonDoEmulation";
 			this.buttonDoEmulation.Size = new System.Drawing.Size(75, 23);
 			this.buttonDoEmulation.TabIndex = 2;
@@ -75,11 +76,22 @@
             0,
             0});
 			// 
+			// checkBoxIsConfirmed
+			// 
+			this.checkBoxIsConfirmed.AutoSize = true;
+			this.checkBoxIsConfirmed.Location = new System.Drawing.Point(15, 37);
+			this.checkBoxIsConfirmed.Name = "checkBoxIsConfirmed";
+			this.checkBoxIsConfirmed.Size = new System.Drawing.Size(121, 17);
+			this.checkBoxIsConfirmed.TabIndex = 4;
+			this.checkBoxIsConfirmed.Text = "IsConfirmedTransmit";
+			this.checkBoxIsConfirmed.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(703, 415);
+			this.Controls.Add(this.checkBoxIsConfirmed);
 			this.Controls.Add(this.numericUpDownEndNodesCount);
 			this.Controls.Add(this.buttonDoEmulation);
 			this.Controls.Add(this.labelEndNodesCount);
@@ -96,6 +108,7 @@
 		private System.Windows.Forms.Label labelEndNodesCount;
 		private System.Windows.Forms.Button buttonDoEmulation;
 		private System.Windows.Forms.NumericUpDown numericUpDownEndNodesCount;
+		private System.Windows.Forms.CheckBox checkBoxIsConfirmed;
 	}
 }
 
