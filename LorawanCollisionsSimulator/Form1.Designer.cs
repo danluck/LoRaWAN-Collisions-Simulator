@@ -44,6 +44,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelEndNodeInitiatedCollisions = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelGatewaySkippedPackets = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
@@ -269,11 +271,33 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "End Node Initiated Collisions, %:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 347);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Gateway Skipped Packets:";
+            // 
+            // labelGatewaySkippedPackets
+            // 
+            this.labelGatewaySkippedPackets.AutoSize = true;
+            this.labelGatewaySkippedPackets.Location = new System.Drawing.Point(231, 347);
+            this.labelGatewaySkippedPackets.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGatewaySkippedPackets.Name = "labelGatewaySkippedPackets";
+            this.labelGatewaySkippedPackets.Size = new System.Drawing.Size(13, 17);
+            this.labelGatewaySkippedPackets.TabIndex = 18;
+            this.labelGatewaySkippedPackets.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 511);
+            this.ClientSize = new System.Drawing.Size(422, 437);
+            this.Controls.Add(this.labelGatewaySkippedPackets);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.labelEndNodeInitiatedCollisions);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelAirTimePercents);
@@ -320,6 +344,8 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label labelEndNodeInitiatedCollisions;
 		private System.Windows.Forms.Label label5;
-	}
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelGatewaySkippedPackets;
+    }
 }
 

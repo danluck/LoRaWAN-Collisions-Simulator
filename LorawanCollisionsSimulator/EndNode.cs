@@ -18,7 +18,7 @@ namespace LorawanCollisionsSimulator
 			return _transmissionLogs;
 		}
 
-		public static uint GetByteTimeUsBySf(uint sf)
+        public static uint GetByteTimeUsBySf(uint sf)
 		{
 			if (sf < Settings.SF_MIN)
 				sf = Settings.SF_MIN;

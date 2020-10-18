@@ -104,7 +104,12 @@ namespace LorawanCollisionsSimulator
 
 			CreateGateway();
 			ShowGatewayTxTime();
-		}
+
+            uint packetsReceived = _gateway.GetPacketsThatNotInEndNodeCollisions(_endNodes);
+            Console.WriteLine("packetsReceived={0}", packetsReceived);
+
+            var transmissionLog = Gateway.GetNextReceivedPacket(_endNodes, 0);
+        }
 
 		private void CreateEndNodes()
 		{
