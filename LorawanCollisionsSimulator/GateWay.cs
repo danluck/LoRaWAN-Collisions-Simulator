@@ -137,11 +137,10 @@ namespace LorawanCollisionsSimulator
 
                     MarkPacketsThatNotBeListenByGateway(endNodes);
 
-                    // Теперь поиск следует начинать с даты завершения отправки
-                    // downlink-пакета в RX1
+                    // Теперь поиск следует начинать с даты завершения
+                    // передачи пакета
                     gatewayTransmitStartTimeMs =
                         transmissionLog.EndMs;
-                        //_gatewayTransmissionLog.Last<GatewayTransmissionLog>().Rx1EndTimeMs;
                 }
 			}
 			else
