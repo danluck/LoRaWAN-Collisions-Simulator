@@ -18,7 +18,7 @@ namespace LorawanCollisionsSimulator
 			return _transmissionLogs;
 		}
 
-		public uint GetOnePacketTransmitTimeMs()
+		public static uint GetOnePacketTransmitTimeMs()
 		{
 			return (Settings.PacketSizeBytes * Settings.OneByteTransmitTimeUs) /
 				1000;
@@ -37,8 +37,11 @@ namespace LorawanCollisionsSimulator
 			uint slotTimeMs = 0;
 			for (uint i = 0; i < Settings.PacketsPerHour; i++)
 			{
-				_transmissionLogs[i].StartMs = slotTimeMs;
-				_transmissionLogs[i].EndMs = slotTimeMs + GetOnePacketTransmitTimeMs();
+				var random = RandomAccessPoint.GetRandomObject();
+				uint randomWait = (uint)random.Next((int)transmitPeriodMs);
+				_transmissionLogs[i].StartMs = slotTimeMs + randomWait;
+				_transmissionLogs[i].EndMs = _transmissionLogs[i].StartMs + 
+					GetOnePacketTransmitTimeMs();
 				_transmissionLogs[i].ChannelNumber = GetRandomChannelNumber();
 				_transmissionLogs[i].IsPacketCanBeListenByGateway = true;
 

@@ -17,22 +17,53 @@ namespace LorawanCollisionsSimulator
 		{
 			InitializeComponent();
 
-			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
-
 			Console.WindowHeight = 60;
 			Console.WindowWidth = 200;
+
+			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
+			numericUpDownPacketsPerHour.Value = Settings.PacketsPerHour;
+			numericUpDownPacketSize.Value = Settings.PacketSizeBytes;
+
+			ShowOnePacketLengthMs();
 		}
 
-		private void buttonDoEmulation_Click(object sender, EventArgs e)
+		private void ShowOnePacketLengthMs()
+		{
+			labelOnePacketLengthMs.Text = 
+				EndNode.GetOnePacketTransmitTimeMs().ToString();
+		}
+
+		private void ReadPacketsPerHour()
+		{
+			Settings.PacketsPerHour = (uint)numericUpDownPacketsPerHour.Value;
+		}
+
+		private void ReadPacketSize()
+		{
+			Settings.PacketSizeBytes = (uint)numericUpDownPacketSize.Value;
+		}
+
+		private void ReadParametersFromForm()
 		{
 			// Чтение параметров с формы в настройки
 			Settings.EndNodesCount = (uint)numericUpDownEndNodesCount.Value;
 			Settings.IsConfirmed = checkBoxIsConfirmed.Checked;
+			ReadPacketSize();
+			ReadPacketsPerHour();
 
-			Console.WriteLine("####################################");
 			Console.WriteLine("Settings.EndNodesCount={0}", Settings.EndNodesCount);
 			Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
 			Console.WriteLine("Settings.IsConfirmed={0}", Settings.IsConfirmed);
+			Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
+			Console.WriteLine("Settings.PacketSizeBytes={0}", Settings.PacketSizeBytes);
+
+			ShowOnePacketLengthMs();
+		}
+
+		private void buttonDoEmulation_Click(object sender, EventArgs e)
+		{
+			Console.WriteLine("####################################");
+			ReadParametersFromForm();
 
 			CreateEndNodes();
 			EndNodesCollisionFinder.DoCollisionFind(_endNodes);
@@ -90,5 +121,17 @@ namespace LorawanCollisionsSimulator
 
 		private IEndNode[] _endNodes;
 		private Gateway _gateway;
+
+		private void numericUpDownPacketsPerHour_ValueChanged(object sender, EventArgs e)
+		{
+			ReadPacketsPerHour();
+			ShowOnePacketLengthMs();
+		}
+
+		private void numericUpDownPacketSize_ValueChanged(object sender, EventArgs e)
+		{
+			ReadPacketSize();
+			ShowOnePacketLengthMs();
+		}
 	}
 }

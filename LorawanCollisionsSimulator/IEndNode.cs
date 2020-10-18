@@ -30,7 +30,5 @@ namespace LorawanCollisionsSimulator
 	interface IEndNode
 	{
 		TransmissionLog[] GetTransmissionLog();
-
-		uint GetOnePacketTransmitTimeMs();
 	}
 }
