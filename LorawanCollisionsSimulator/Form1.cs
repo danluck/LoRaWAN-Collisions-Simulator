@@ -28,6 +28,10 @@ namespace LorawanCollisionsSimulator
 
             numericUpDownRx1.Value = Settings.Rx1PeriodS;
 
+            checkBoxGwRx1Enabled.Checked = Settings.IsRx1GatewayEnabled;
+            checkBoxGwRx1Enabled.Enabled = checkBoxIsConfirmed.Checked;
+            checkBoxGwRx2Enabled.Enabled = checkBoxIsConfirmed.Checked;
+
             ShowCalculatedParameters();
 		}
 
@@ -229,6 +233,8 @@ namespace LorawanCollisionsSimulator
             ReadSf();
             ReadRx1();
             ReadSimulateHours();
+            ReadGatewayRx1Enabled();
+            ReadGatewayRx2Enabled();
 
             Console.WriteLine("Settings.EndNodesCount={0}", Settings.EndNodesCount);
             Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
@@ -238,8 +244,20 @@ namespace LorawanCollisionsSimulator
             Console.WriteLine("Settings.OneByteTransmitTimeUs={0}", Settings.OneByteTransmitTimeUs);
             Console.WriteLine("Settings.Rx1PeriodS={0}", Settings.Rx1PeriodS);
             Console.WriteLine("Settings.SimulateLengthMs={0}", Settings.SimulateLengthMs);
+            Console.WriteLine("Settings.IsRx1GatewayEnabled={0}", Settings.IsRx1GatewayEnabled);
+            Console.WriteLine("Settings.IsRx2GatewayEnabled={0}", Settings.IsRx2GatewayEnabled);
 
             ShowOnePacketLengthMs();
+        }
+
+        private void ReadGatewayRx1Enabled()
+        {
+            Settings.IsRx1GatewayEnabled = checkBoxGwRx1Enabled.Checked;
+        }
+
+        private void ReadGatewayRx2Enabled()
+        {
+            Settings.IsRx2GatewayEnabled = checkBoxGwRx2Enabled.Checked;
         }
 
         #endregion
@@ -289,10 +307,23 @@ namespace LorawanCollisionsSimulator
 
         private void checkBoxIsConfirmed_CheckedChanged(object sender, EventArgs e)
         {
+            checkBoxGwRx1Enabled.Enabled = checkBoxIsConfirmed.Checked;
+            checkBoxGwRx2Enabled.Enabled = checkBoxIsConfirmed.Checked;
         }
+
+        private void checkBoxGwRx1Enabled_CheckedChanged(object sender, EventArgs e)
+        {
+            ReadGatewayRx1Enabled();
+        }
+
+        private void checkBoxGwRx2Enabled_CheckedChanged(object sender, EventArgs e)
+        {
+            ReadGatewayRx2Enabled();
+        }
+
         #endregion
 
         private IEndNode[] _endNodes;
         private Gateway _gateway;
-    }
+	}
 }

@@ -154,22 +154,28 @@ namespace LorawanCollisionsSimulator
         {
             var gatewayTransmissionLog = new GatewayTransmissionLog();
 
-            // Передача в RX1
-            gatewayTransmissionLog.Rx1Channel = endNodeTransmission.ChannelNumber;
-            gatewayTransmissionLog.Rx1StartTimeMs =
-                endNodeTransmission.EndMs +
-                Settings.Rx1PeriodS * 1000;
-            gatewayTransmissionLog.Rx1EndTimeMs =
-                gatewayTransmissionLog.Rx1StartTimeMs +
-                GetRx1DownlinkTimeMs();
+            if (Settings.IsRx1GatewayEnabled)
+            {
+                // Передача в RX1
+                gatewayTransmissionLog.Rx1Channel = endNodeTransmission.ChannelNumber;
+                gatewayTransmissionLog.Rx1StartTimeMs =
+                    endNodeTransmission.EndMs +
+                    Settings.Rx1PeriodS * 1000;
+                gatewayTransmissionLog.Rx1EndTimeMs =
+                    gatewayTransmissionLog.Rx1StartTimeMs +
+                    GetRx1DownlinkTimeMs();
+            }
 
-            // Передача в RX2
-            gatewayTransmissionLog.Rx2StartTimeMs =
+            if (Settings.IsRx2GatewayEnabled)
+            {
+                // Передача в RX2
+                gatewayTransmissionLog.Rx2StartTimeMs =
                 endNodeTransmission.EndMs +
                 Settings.Rx2PeriodS * 1000;
-            gatewayTransmissionLog.Rx2EndTimeMs =
-                gatewayTransmissionLog.Rx2StartTimeMs +
-                GetRx2DownlinkTimeMs();
+                gatewayTransmissionLog.Rx2EndTimeMs =
+                    gatewayTransmissionLog.Rx2StartTimeMs +
+                    GetRx2DownlinkTimeMs();
+            }
 
             _gatewayTransmissionLog.Add(gatewayTransmissionLog);
         }

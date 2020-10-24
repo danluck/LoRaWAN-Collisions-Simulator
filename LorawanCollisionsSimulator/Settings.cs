@@ -15,7 +15,7 @@ namespace LorawanCollisionsSimulator
 
 		public static bool IsConfirmed = false;
 
-		public static uint EndNodesCount = 10;
+		public static uint EndNodesCount = 15;
 
 		public static uint SimulateLengthMs = MS_IN_HOUR * 2;
 
@@ -23,7 +23,10 @@ namespace LorawanCollisionsSimulator
 
 		public static uint PacketsPerHour = 60;
 
-		public static uint PacketSizeBytes = 51;
+		public static uint PacketSizeBytes = 12;
+
+		public static bool IsRx1GatewayEnabled = true;
+		public static bool IsRx2GatewayEnabled = true;
 
 		/// <summary>
 		/// Длительность передачи одного байта, с
