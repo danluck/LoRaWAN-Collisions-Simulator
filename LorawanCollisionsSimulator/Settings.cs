@@ -21,7 +21,7 @@ namespace LorawanCollisionsSimulator
 
 		public static uint ChannelsCount = 7;
 
-		public static uint PacketsPerHour = 60;
+		public static uint PacketsPerHour = 12;
 
 		public static uint PacketSizeBytes = 12;
 
