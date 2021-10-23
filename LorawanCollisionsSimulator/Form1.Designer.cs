@@ -61,6 +61,9 @@
 			this.checkBoxGwRx2Enabled = new System.Windows.Forms.CheckBox();
 			this.labelChannelsCount = new System.Windows.Forms.Label();
 			this.numericUpDownChannelsCount = new System.Windows.Forms.NumericUpDown();
+			this.progressBarMain = new System.Windows.Forms.ProgressBar();
+			this.labelEmulateTimeText = new System.Windows.Forms.Label();
+			this.labelEmulateTime = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
@@ -482,11 +485,39 @@
             0,
             0});
 			// 
+			// progressBarMain
+			// 
+			this.progressBarMain.Location = new System.Drawing.Point(10, 496);
+			this.progressBarMain.Name = "progressBarMain";
+			this.progressBarMain.Size = new System.Drawing.Size(303, 23);
+			this.progressBarMain.TabIndex = 34;
+			// 
+			// labelEmulateTimeText
+			// 
+			this.labelEmulateTimeText.AutoSize = true;
+			this.labelEmulateTimeText.Location = new System.Drawing.Point(7, 526);
+			this.labelEmulateTimeText.Name = "labelEmulateTimeText";
+			this.labelEmulateTimeText.Size = new System.Drawing.Size(70, 13);
+			this.labelEmulateTimeText.TabIndex = 35;
+			this.labelEmulateTimeText.Text = "Emulate time:";
+			// 
+			// labelEmulateTime
+			// 
+			this.labelEmulateTime.AutoSize = true;
+			this.labelEmulateTime.Location = new System.Drawing.Point(79, 526);
+			this.labelEmulateTime.Name = "labelEmulateTime";
+			this.labelEmulateTime.Size = new System.Drawing.Size(10, 13);
+			this.labelEmulateTime.TabIndex = 37;
+			this.labelEmulateTime.Text = "-";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(338, 548);
+			this.Controls.Add(this.labelEmulateTime);
+			this.Controls.Add(this.labelEmulateTimeText);
+			this.Controls.Add(this.progressBarMain);
 			this.Controls.Add(this.numericUpDownChannelsCount);
 			this.Controls.Add(this.labelChannelsCount);
 			this.Controls.Add(this.checkBoxGwRx2Enabled);
@@ -561,6 +592,9 @@
 		private System.Windows.Forms.CheckBox checkBoxGwRx2Enabled;
 		private System.Windows.Forms.Label labelChannelsCount;
 		private System.Windows.Forms.NumericUpDown numericUpDownChannelsCount;
+		private System.Windows.Forms.ProgressBar progressBarMain;
+		private System.Windows.Forms.Label labelEmulateTimeText;
+		private System.Windows.Forms.Label labelEmulateTime;
 	}
 }
 

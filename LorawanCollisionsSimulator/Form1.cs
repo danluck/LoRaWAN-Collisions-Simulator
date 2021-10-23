@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Diagnostics;
 
 namespace LorawanCollisionsSimulator
 {
@@ -273,20 +274,27 @@ namespace LorawanCollisionsSimulator
 
         private void buttonDoEmulation_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("####################################");
-            ReadParametersFromForm();
+			Stopwatch total = new Stopwatch();
+			total.Start();
+
+			Console.WriteLine("####################################");
+			ReadParametersFromForm();
 
             CreateEndNodes();
-            EndNodesCollisionFinder.DoCollisionFind(_endNodes);
-            ShowEndNodesTransmitTimes();
-
+			EndNodesCollisionFinder.DoCollisionFind(_endNodes, progressBarMain);
+			ShowEndNodesTransmitTimes();
             CreateGateway();
             _gateway.CalculateGatewayTx(_endNodes);
             ShowGatewayTxTime();
             ShowPacketsThatWasSkippedByGateway();
             ShowSuccessfullyReceivedPackets();
             ShowGatewayAirTime();
-        }
+
+			total.Stop();
+			var totalTimeSpan = total.Elapsed;
+			Console.WriteLine("totalTimeSpan={0}", totalTimeSpan);
+			labelEmulateTime.Text = totalTimeSpan.ToString();
+		}
 
         private void numericUpDownPacketsPerHour_ValueChanged(object sender, EventArgs e)
 		{

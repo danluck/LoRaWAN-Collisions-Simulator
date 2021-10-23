@@ -8,10 +8,15 @@ namespace LorawanCollisionsSimulator
 {
 	static class EndNodesCollisionFinder
 	{
-		public static void DoCollisionFind(IEndNode[] endNodes)
+		public static void DoCollisionFind(IEndNode[] endNodes, 
+			System.Windows.Forms.ProgressBar progressBar)
 		{
+			progressBar.Value = 0;
+			progressBar.Maximum = endNodes.Length - 1;
+
 			for (uint endNodeIndex = 0; endNodeIndex < endNodes.Length; endNodeIndex++)
 			{
+				progressBar.Value = (int)endNodeIndex;
 				for (uint k = 0; k < endNodes.Length; k++)
 				{
 					if (k == endNodeIndex)
