@@ -46,7 +46,7 @@ namespace LorawanCollisionsSimulator
 
 		public static uint GetOnePacketTransmitTimeMs()
 		{
-			return (Settings.PacketSizeBytes * Settings.OneByteTransmitTimeUs) /
+			return (Settings.PacketPayloadSizeBytes * Settings.OneByteTransmitTimeUs) /
 				1000;
 		}
 

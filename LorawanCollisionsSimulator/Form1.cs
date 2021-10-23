@@ -26,7 +26,7 @@ namespace LorawanCollisionsSimulator
 			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
 			numericUpDownPacketsPerHour.Value = Settings.PacketsPerHour;
 			numericUpDownChannelsCount.Value = Settings.ChannelsCount;
-			numericUpDownPacketSize.Value = Settings.PacketSizeBytes;
+			numericUpDownPacketSize.Value = Settings.PacketPayloadSizeBytes;
 
             numericUpDownRx1.Value = Settings.Rx1PeriodS;
 
@@ -203,7 +203,7 @@ namespace LorawanCollisionsSimulator
 
 		private void ReadPacketSize()
         {
-            Settings.PacketSizeBytes = (uint)numericUpDownPacketSize.Value;
+            Settings.PacketPayloadSizeBytes = (uint)numericUpDownPacketSize.Value;
         }
 
         private void ReadSf()
@@ -248,7 +248,7 @@ namespace LorawanCollisionsSimulator
             Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
             Console.WriteLine("Settings.IsConfirmed={0}", Settings.IsConfirmed);
             Console.WriteLine("Settings.PacketsPerHour={0}", Settings.PacketsPerHour);
-            Console.WriteLine("Settings.PacketSizeBytes={0}", Settings.PacketSizeBytes);
+            Console.WriteLine("Settings.PacketSizeBytes={0}", Settings.PacketPayloadSizeBytes);
             Console.WriteLine("Settings.OneByteTransmitTimeUs={0}", Settings.OneByteTransmitTimeUs);
             Console.WriteLine("Settings.Rx1PeriodS={0}", Settings.Rx1PeriodS);
             Console.WriteLine("Settings.SimulateLengthMs={0}", Settings.SimulateLengthMs);

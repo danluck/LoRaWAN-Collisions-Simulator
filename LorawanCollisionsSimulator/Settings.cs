@@ -23,7 +23,7 @@ namespace LorawanCollisionsSimulator
 
 		public static uint PacketsPerHour = 12;
 
-		public static uint PacketSizeBytes = 12;
+		public static uint PacketPayloadSizeBytes = 12;
 
 		public static bool IsRx1GatewayEnabled = true;
 		public static bool IsRx2GatewayEnabled = true;
