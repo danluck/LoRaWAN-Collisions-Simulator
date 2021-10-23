@@ -37,9 +37,6 @@ namespace LorawanCollisionsSimulator
 							{
 								transmissionLogInitial[j].IsPacketCollisionsWithOtherEndNodes = true;
 								transmissionLogSecond[m].IsPacketCollisionsWithOtherEndNodes = true;
-
-// 								Console.WriteLine("endNodeIndex=[{0}][n={1}], k=[{2}][n={3}]", 
-// 									endNodeIndex, j, k, m);
 							}
 						}
 					}
