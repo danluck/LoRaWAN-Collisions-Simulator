@@ -59,6 +59,8 @@
 			this.label10 = new System.Windows.Forms.Label();
 			this.checkBoxGwRx1Enabled = new System.Windows.Forms.CheckBox();
 			this.checkBoxGwRx2Enabled = new System.Windows.Forms.CheckBox();
+			this.labelChannelsCount = new System.Windows.Forms.Label();
+			this.numericUpDownChannelsCount = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
@@ -66,6 +68,7 @@
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRx1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulateHours)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownChannelsCount)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelEndNodesCount
@@ -79,7 +82,7 @@
 			// 
 			// buttonDoEmulation
 			// 
-			this.buttonDoEmulation.Location = new System.Drawing.Point(10, 249);
+			this.buttonDoEmulation.Location = new System.Drawing.Point(10, 274);
 			this.buttonDoEmulation.Name = "buttonDoEmulation";
 			this.buttonDoEmulation.Size = new System.Drawing.Size(303, 48);
 			this.buttonDoEmulation.TabIndex = 2;
@@ -113,7 +116,7 @@
 			// checkBoxIsConfirmed
 			// 
 			this.checkBoxIsConfirmed.AutoSize = true;
-			this.checkBoxIsConfirmed.Location = new System.Drawing.Point(155, 140);
+			this.checkBoxIsConfirmed.Location = new System.Drawing.Point(155, 165);
 			this.checkBoxIsConfirmed.Name = "checkBoxIsConfirmed";
 			this.checkBoxIsConfirmed.Size = new System.Drawing.Size(73, 17);
 			this.checkBoxIsConfirmed.TabIndex = 4;
@@ -155,7 +158,7 @@
 			// 
 			// numericUpDownPacketSize
 			// 
-			this.numericUpDownPacketSize.Location = new System.Drawing.Point(155, 50);
+			this.numericUpDownPacketSize.Location = new System.Drawing.Point(155, 74);
 			this.numericUpDownPacketSize.Maximum = new decimal(new int[] {
             222,
             0,
@@ -179,7 +182,7 @@
 			// labelPacketSizeText
 			// 
 			this.labelPacketSizeText.AutoSize = true;
-			this.labelPacketSizeText.Location = new System.Drawing.Point(52, 51);
+			this.labelPacketSizeText.Location = new System.Drawing.Point(52, 75);
 			this.labelPacketSizeText.Name = "labelPacketSizeText";
 			this.labelPacketSizeText.Size = new System.Drawing.Size(99, 13);
 			this.labelPacketSizeText.TabIndex = 7;
@@ -188,7 +191,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(33, 210);
+			this.label1.Location = new System.Drawing.Point(33, 235);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(153, 13);
 			this.label1.TabIndex = 9;
@@ -197,7 +200,7 @@
 			// labelOnePacketLengthMs
 			// 
 			this.labelOnePacketLengthMs.AutoSize = true;
-			this.labelOnePacketLengthMs.Location = new System.Drawing.Point(188, 210);
+			this.labelOnePacketLengthMs.Location = new System.Drawing.Point(188, 235);
 			this.labelOnePacketLengthMs.Name = "labelOnePacketLengthMs";
 			this.labelOnePacketLengthMs.Size = new System.Drawing.Size(10, 13);
 			this.labelOnePacketLengthMs.TabIndex = 10;
@@ -205,7 +208,7 @@
 			// 
 			// numericUpDownSf
 			// 
-			this.numericUpDownSf.Location = new System.Drawing.Point(155, 72);
+			this.numericUpDownSf.Location = new System.Drawing.Point(155, 96);
 			this.numericUpDownSf.Maximum = new decimal(new int[] {
             12,
             0,
@@ -229,7 +232,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(128, 74);
+			this.label2.Location = new System.Drawing.Point(128, 98);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(23, 13);
 			this.label2.TabIndex = 11;
@@ -238,7 +241,7 @@
 			// labelAirTimePercents
 			// 
 			this.labelAirTimePercents.AutoSize = true;
-			this.labelAirTimePercents.Location = new System.Drawing.Point(188, 232);
+			this.labelAirTimePercents.Location = new System.Drawing.Point(188, 257);
 			this.labelAirTimePercents.Name = "labelAirTimePercents";
 			this.labelAirTimePercents.Size = new System.Drawing.Size(10, 13);
 			this.labelAirTimePercents.TabIndex = 14;
@@ -247,7 +250,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(81, 232);
+			this.label4.Location = new System.Drawing.Point(81, 257);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(109, 13);
 			this.label4.TabIndex = 13;
@@ -355,10 +358,10 @@
 			this.groupBox1.Controls.Add(this.label8);
 			this.groupBox1.Controls.Add(this.label6);
 			this.groupBox1.Controls.Add(this.labelSuccessfullyReceivedPackets);
-			this.groupBox1.Location = new System.Drawing.Point(10, 303);
-			this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBox1.Location = new System.Drawing.Point(10, 328);
+			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
 			this.groupBox1.Size = new System.Drawing.Size(303, 163);
 			this.groupBox1.TabIndex = 25;
 			this.groupBox1.TabStop = false;
@@ -366,7 +369,7 @@
 			// 
 			// numericUpDownRx1
 			// 
-			this.numericUpDownRx1.Location = new System.Drawing.Point(155, 94);
+			this.numericUpDownRx1.Location = new System.Drawing.Point(155, 118);
 			this.numericUpDownRx1.Maximum = new decimal(new int[] {
             15,
             0,
@@ -389,7 +392,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(120, 96);
+			this.label7.Location = new System.Drawing.Point(120, 120);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(31, 13);
 			this.label7.TabIndex = 26;
@@ -397,7 +400,7 @@
 			// 
 			// numericUpDownSimulateHours
 			// 
-			this.numericUpDownSimulateHours.Location = new System.Drawing.Point(155, 115);
+			this.numericUpDownSimulateHours.Location = new System.Drawing.Point(155, 140);
 			this.numericUpDownSimulateHours.Maximum = new decimal(new int[] {
             24,
             0,
@@ -420,7 +423,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(68, 117);
+			this.label10.Location = new System.Drawing.Point(68, 142);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(81, 13);
 			this.label10.TabIndex = 28;
@@ -429,7 +432,7 @@
 			// checkBoxGwRx1Enabled
 			// 
 			this.checkBoxGwRx1Enabled.AutoSize = true;
-			this.checkBoxGwRx1Enabled.Location = new System.Drawing.Point(155, 163);
+			this.checkBoxGwRx1Enabled.Location = new System.Drawing.Point(155, 188);
 			this.checkBoxGwRx1Enabled.Name = "checkBoxGwRx1Enabled";
 			this.checkBoxGwRx1Enabled.Size = new System.Drawing.Size(127, 17);
 			this.checkBoxGwRx1Enabled.TabIndex = 30;
@@ -440,7 +443,7 @@
 			// checkBoxGwRx2Enabled
 			// 
 			this.checkBoxGwRx2Enabled.AutoSize = true;
-			this.checkBoxGwRx2Enabled.Location = new System.Drawing.Point(155, 186);
+			this.checkBoxGwRx2Enabled.Location = new System.Drawing.Point(155, 211);
 			this.checkBoxGwRx2Enabled.Name = "checkBoxGwRx2Enabled";
 			this.checkBoxGwRx2Enabled.Size = new System.Drawing.Size(127, 17);
 			this.checkBoxGwRx2Enabled.TabIndex = 31;
@@ -448,11 +451,44 @@
 			this.checkBoxGwRx2Enabled.UseVisualStyleBackColor = true;
 			this.checkBoxGwRx2Enabled.CheckedChanged += new System.EventHandler(this.checkBoxGwRx2Enabled_CheckedChanged);
 			// 
+			// labelChannelsCount
+			// 
+			this.labelChannelsCount.AutoSize = true;
+			this.labelChannelsCount.Location = new System.Drawing.Point(21, 53);
+			this.labelChannelsCount.Name = "labelChannelsCount";
+			this.labelChannelsCount.Size = new System.Drawing.Size(130, 13);
+			this.labelChannelsCount.TabIndex = 32;
+			this.labelChannelsCount.Text = "Gateway Channels Count:";
+			// 
+			// numericUpDownChannelsCount
+			// 
+			this.numericUpDownChannelsCount.Location = new System.Drawing.Point(155, 51);
+			this.numericUpDownChannelsCount.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this.numericUpDownChannelsCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numericUpDownChannelsCount.Name = "numericUpDownChannelsCount";
+			this.numericUpDownChannelsCount.Size = new System.Drawing.Size(67, 20);
+			this.numericUpDownChannelsCount.TabIndex = 33;
+			this.numericUpDownChannelsCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(325, 474);
+			this.ClientSize = new System.Drawing.Size(338, 548);
+			this.Controls.Add(this.numericUpDownChannelsCount);
+			this.Controls.Add(this.labelChannelsCount);
 			this.Controls.Add(this.checkBoxGwRx2Enabled);
 			this.Controls.Add(this.checkBoxGwRx1Enabled);
 			this.Controls.Add(this.numericUpDownSimulateHours);
@@ -484,6 +520,7 @@
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRx1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownSimulateHours)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownChannelsCount)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -522,6 +559,8 @@
         private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.CheckBox checkBoxGwRx1Enabled;
 		private System.Windows.Forms.CheckBox checkBoxGwRx2Enabled;
+		private System.Windows.Forms.Label labelChannelsCount;
+		private System.Windows.Forms.NumericUpDown numericUpDownChannelsCount;
 	}
 }
 

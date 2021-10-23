@@ -24,6 +24,7 @@ namespace LorawanCollisionsSimulator
 			numericUpDownEndNodesCount.Value = Settings.EndNodesCount;
 			checkBoxIsConfirmed.Checked = Settings.IsConfirmed;
 			numericUpDownPacketsPerHour.Value = Settings.PacketsPerHour;
+			numericUpDownChannelsCount.Value = Settings.ChannelsCount;
 			numericUpDownPacketSize.Value = Settings.PacketSizeBytes;
 
             numericUpDownRx1.Value = Settings.Rx1PeriodS;
@@ -194,7 +195,12 @@ namespace LorawanCollisionsSimulator
             Settings.PacketsPerHour = (uint)numericUpDownPacketsPerHour.Value;
         }
 
-        private void ReadPacketSize()
+		private void ReadChannelsCount()
+		{
+			Settings.ChannelsCount = (uint)numericUpDownChannelsCount.Value;
+		}
+
+		private void ReadPacketSize()
         {
             Settings.PacketSizeBytes = (uint)numericUpDownPacketSize.Value;
         }
@@ -230,6 +236,7 @@ namespace LorawanCollisionsSimulator
             Settings.IsConfirmed = checkBoxIsConfirmed.Checked;
             ReadPacketSize();
             ReadPacketsPerHour();
+			ReadChannelsCount();
             ReadSf();
             ReadRx1();
             ReadSimulateHours();
