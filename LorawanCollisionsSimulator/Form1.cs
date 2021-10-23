@@ -274,8 +274,8 @@ namespace LorawanCollisionsSimulator
 
         private void buttonDoEmulation_Click(object sender, EventArgs e)
         {
-			Stopwatch total = new Stopwatch();
-			total.Start();
+			Stopwatch executeTimeProfiler = new Stopwatch();
+			executeTimeProfiler.Start();
 
 			Console.WriteLine("####################################");
 			ReadParametersFromForm();
@@ -290,8 +290,8 @@ namespace LorawanCollisionsSimulator
             ShowSuccessfullyReceivedPackets();
             ShowGatewayAirTime();
 
-			total.Stop();
-			var totalTimeSpan = total.Elapsed;
+			executeTimeProfiler.Stop();
+			var totalTimeSpan = executeTimeProfiler.Elapsed;
 			Console.WriteLine("totalTimeSpan={0}", totalTimeSpan);
 			labelEmulateTime.Text = totalTimeSpan.ToString();
 		}
