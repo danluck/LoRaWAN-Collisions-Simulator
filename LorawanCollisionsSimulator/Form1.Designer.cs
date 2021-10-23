@@ -64,6 +64,9 @@
 			this.progressBarMain = new System.Windows.Forms.ProgressBar();
 			this.labelEmulateTimeText = new System.Windows.Forms.Label();
 			this.labelEmulateTime = new System.Windows.Forms.Label();
+			this.labelHeaderSizeName = new System.Windows.Forms.Label();
+			this.labelHeaderSizeValue = new System.Windows.Forms.Label();
+			this.labelSfRange = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownEndNodesCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketsPerHour)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPacketSize)).BeginInit();
@@ -85,7 +88,7 @@
 			// 
 			// buttonDoEmulation
 			// 
-			this.buttonDoEmulation.Location = new System.Drawing.Point(10, 274);
+			this.buttonDoEmulation.Location = new System.Drawing.Point(10, 298);
 			this.buttonDoEmulation.Name = "buttonDoEmulation";
 			this.buttonDoEmulation.Size = new System.Drawing.Size(303, 48);
 			this.buttonDoEmulation.TabIndex = 2;
@@ -167,11 +170,6 @@
             0,
             0,
             0});
-			this.numericUpDownPacketSize.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
 			this.numericUpDownPacketSize.Name = "numericUpDownPacketSize";
 			this.numericUpDownPacketSize.Size = new System.Drawing.Size(67, 20);
 			this.numericUpDownPacketSize.TabIndex = 8;
@@ -194,7 +192,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(33, 235);
+			this.label1.Location = new System.Drawing.Point(33, 254);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(153, 13);
 			this.label1.TabIndex = 9;
@@ -203,7 +201,7 @@
 			// labelOnePacketLengthMs
 			// 
 			this.labelOnePacketLengthMs.AutoSize = true;
-			this.labelOnePacketLengthMs.Location = new System.Drawing.Point(188, 235);
+			this.labelOnePacketLengthMs.Location = new System.Drawing.Point(188, 254);
 			this.labelOnePacketLengthMs.Name = "labelOnePacketLengthMs";
 			this.labelOnePacketLengthMs.Size = new System.Drawing.Size(10, 13);
 			this.labelOnePacketLengthMs.TabIndex = 10;
@@ -244,7 +242,7 @@
 			// labelAirTimePercents
 			// 
 			this.labelAirTimePercents.AutoSize = true;
-			this.labelAirTimePercents.Location = new System.Drawing.Point(188, 257);
+			this.labelAirTimePercents.Location = new System.Drawing.Point(188, 276);
 			this.labelAirTimePercents.Name = "labelAirTimePercents";
 			this.labelAirTimePercents.Size = new System.Drawing.Size(10, 13);
 			this.labelAirTimePercents.TabIndex = 14;
@@ -253,7 +251,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(81, 257);
+			this.label4.Location = new System.Drawing.Point(81, 276);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(109, 13);
 			this.label4.TabIndex = 13;
@@ -361,7 +359,7 @@
 			this.groupBox1.Controls.Add(this.label8);
 			this.groupBox1.Controls.Add(this.label6);
 			this.groupBox1.Controls.Add(this.labelSuccessfullyReceivedPackets);
-			this.groupBox1.Location = new System.Drawing.Point(10, 328);
+			this.groupBox1.Location = new System.Drawing.Point(10, 352);
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -487,7 +485,7 @@
 			// 
 			// progressBarMain
 			// 
-			this.progressBarMain.Location = new System.Drawing.Point(10, 496);
+			this.progressBarMain.Location = new System.Drawing.Point(10, 520);
 			this.progressBarMain.Name = "progressBarMain";
 			this.progressBarMain.Size = new System.Drawing.Size(303, 23);
 			this.progressBarMain.TabIndex = 34;
@@ -495,7 +493,7 @@
 			// labelEmulateTimeText
 			// 
 			this.labelEmulateTimeText.AutoSize = true;
-			this.labelEmulateTimeText.Location = new System.Drawing.Point(7, 526);
+			this.labelEmulateTimeText.Location = new System.Drawing.Point(7, 550);
 			this.labelEmulateTimeText.Name = "labelEmulateTimeText";
 			this.labelEmulateTimeText.Size = new System.Drawing.Size(70, 13);
 			this.labelEmulateTimeText.TabIndex = 35;
@@ -504,17 +502,47 @@
 			// labelEmulateTime
 			// 
 			this.labelEmulateTime.AutoSize = true;
-			this.labelEmulateTime.Location = new System.Drawing.Point(79, 526);
+			this.labelEmulateTime.Location = new System.Drawing.Point(79, 550);
 			this.labelEmulateTime.Name = "labelEmulateTime";
 			this.labelEmulateTime.Size = new System.Drawing.Size(10, 13);
 			this.labelEmulateTime.TabIndex = 37;
 			this.labelEmulateTime.Text = "-";
 			// 
+			// labelHeaderSizeName
+			// 
+			this.labelHeaderSizeName.AutoSize = true;
+			this.labelHeaderSizeName.Location = new System.Drawing.Point(23, 231);
+			this.labelHeaderSizeName.Name = "labelHeaderSizeName";
+			this.labelHeaderSizeName.Size = new System.Drawing.Size(160, 13);
+			this.labelHeaderSizeName.TabIndex = 38;
+			this.labelHeaderSizeName.Text = "+header (Preamble, FHDR, MIC)";
+			// 
+			// labelHeaderSizeValue
+			// 
+			this.labelHeaderSizeValue.AutoSize = true;
+			this.labelHeaderSizeValue.Location = new System.Drawing.Point(188, 231);
+			this.labelHeaderSizeValue.Name = "labelHeaderSizeValue";
+			this.labelHeaderSizeValue.Size = new System.Drawing.Size(10, 13);
+			this.labelHeaderSizeValue.TabIndex = 39;
+			this.labelHeaderSizeValue.Text = "-";
+			// 
+			// labelSfRange
+			// 
+			this.labelSfRange.AutoSize = true;
+			this.labelSfRange.Location = new System.Drawing.Point(228, 103);
+			this.labelSfRange.Name = "labelSfRange";
+			this.labelSfRange.Size = new System.Drawing.Size(46, 13);
+			this.labelSfRange.TabIndex = 40;
+			this.labelSfRange.Text = "[7,8..12]";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(338, 548);
+			this.ClientSize = new System.Drawing.Size(338, 578);
+			this.Controls.Add(this.labelSfRange);
+			this.Controls.Add(this.labelHeaderSizeValue);
+			this.Controls.Add(this.labelHeaderSizeName);
 			this.Controls.Add(this.labelEmulateTime);
 			this.Controls.Add(this.labelEmulateTimeText);
 			this.Controls.Add(this.progressBarMain);
@@ -595,6 +623,9 @@
 		private System.Windows.Forms.ProgressBar progressBarMain;
 		private System.Windows.Forms.Label labelEmulateTimeText;
 		private System.Windows.Forms.Label labelEmulateTime;
+		private System.Windows.Forms.Label labelHeaderSizeName;
+		private System.Windows.Forms.Label labelHeaderSizeValue;
+		private System.Windows.Forms.Label labelSfRange;
 	}
 }
 

@@ -25,6 +25,17 @@ namespace LorawanCollisionsSimulator
 
 		public static uint PacketPayloadSizeBytes = 12;
 
+		// 13 = 12.25 (sym) Preamble (From LoraModem Calculator)
+		// 4 = 2 + 2 (PHDR + PHDR CRC)
+		// 1 MHDR
+		// 4 DevAddr
+		// 1 FCtrl
+		// 2 FCnt
+		// 1 FPort
+		// 4 MIC
+		// 2 - Total CRC
+		public static uint PacketHeaderSizeBytes = 13 + 4 + 1 + 4 + 1 + 2 + 1 + 4 + 2;
+
 		public static bool IsRx1GatewayEnabled = true;
 		public static bool IsRx2GatewayEnabled = true;
 

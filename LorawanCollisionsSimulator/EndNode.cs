@@ -20,6 +20,9 @@ namespace LorawanCollisionsSimulator
 
         public static uint GetByteTimeUsBySf(uint sf)
 		{
+			// Source:
+			// Lora modem calculator tool
+			// https://avbentem.github.io/airtime-calculator/ttn/eu868/0
 			if (sf < Settings.SF_MIN)
 				sf = Settings.SF_MIN;
 			if (sf > Settings.SF_MAX)
@@ -28,26 +31,26 @@ namespace LorawanCollisionsSimulator
 			switch(sf)
 			{
 				case 7:
-					return 2313;
+					return 1440; // 1020 - original
 				case 8:
-					return 4215;
+					return 2050;
 				case 9:
-					return 7647;
+					return 4100;
 				case 10:
-					return 13686;
+					return 8190;
 				case 11:
-					return 30588;
+					return 16380;
 				case 12:
-					return 57764;
+					return 32770;
 				default:
-					return 57764;
+					return 32770;
 			}
 		}
 
 		public static uint GetOnePacketTransmitTimeMs()
 		{
-			return (Settings.PacketPayloadSizeBytes * Settings.OneByteTransmitTimeUs) /
-				1000;
+			return ((Settings.PacketHeaderSizeBytes + Settings.PacketPayloadSizeBytes) * 
+				Settings.OneByteTransmitTimeUs) / 1000;
 		}
 
 		public void CalculateTransmitTime()

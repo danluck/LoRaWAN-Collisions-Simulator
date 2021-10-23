@@ -27,6 +27,7 @@ namespace LorawanCollisionsSimulator
 			numericUpDownPacketsPerHour.Value = Settings.PacketsPerHour;
 			numericUpDownChannelsCount.Value = Settings.ChannelsCount;
 			numericUpDownPacketSize.Value = Settings.PacketPayloadSizeBytes;
+			labelHeaderSizeValue.Text = Settings.PacketHeaderSizeBytes.ToString();
 
             numericUpDownRx1.Value = Settings.Rx1PeriodS;
 
